@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxWidth="800.0" prefHeight="600.0" prefWidth="800.0" styleClass="root" stylesheets="@../resources/style/base.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox prefHeight="200.0" style="-fx-background-color: -fx-secondary;" VBox.vgrow="ALWAYS" />
+            <VBox prefHeight="360.0" style="-fx-background-color: -fx-primary;" styleClass="root" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" fillWidth="false" layoutX="-9.0" layoutY="-9.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="CENTER" spacing="30.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 20, 0, 0, 0);;" styleClass="normal-pane">
+               <children>
+                  <HBox alignment="CENTER" style="-fx-background-radius: 15 15 0 0;">
+                     <children>
+                        <Label text="تسجيل الدخول">
+                           <font>
+                              <Font name="Arial Bold" size="55.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="-50.0" right="-50.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <VBox alignment="CENTER" spacing="40.0">
+                     <children>
+                        <AnchorPane>
+                           <children>
+                              <TextField fx:id="UserNameField" alignment="CENTER_RIGHT" layoutX="9.0" layoutY="9.0" onAction="#loginAction" prefHeight="52.0" prefWidth="380.0" promptText="اسم المستخدم" styleClass="text-field-login" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets right="55.0" />
+                                 </padding>
+                              </TextField>
+                              <FontAwesomeIconView glyphName="USER" layoutX="346.0" layoutY="34.0" size="25" styleClass="text-field-icon" AnchorPane.bottomAnchor="13.940290451049805" AnchorPane.rightAnchor="14.35714340209961" AnchorPane.topAnchor="12.571428298950195" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane>
+                           <children>
+                              <TextField fx:id="PasswordTextField" alignment="CENTER_RIGHT" layoutX="9.0" layoutY="9.0" onAction="#loginAction" prefHeight="52.0" prefWidth="380.0" promptText="كلمة المرور" styleClass="text-field-login" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets right="55.0" />
+                                 </padding>
+                              </TextField>
+                              <PasswordField fx:id="PasswordField" alignment="CENTER_RIGHT" onAction="#loginAction" promptText="كلمة المرور" styleClass="text-field-login" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets right="55.0" />
+                                 </padding>
+                              </PasswordField>
+                              <FontAwesomeIconView glyphName="LOCK" layoutX="346.0" layoutY="34.0" size="25" styleClass="text-field-icon" AnchorPane.bottomAnchor="13.940290451049805" AnchorPane.rightAnchor="14.35714340209961" AnchorPane.topAnchor="12.571428298950195" />
+                              <JFXButton contentDisplay="GRAPHIC_ONLY" focusTraversable="false" onMousePressed="#eyeBTN" onMouseReleased="#eyeBTN2" prefHeight="53.0" prefWidth="45.0" ripplerFill="#dadada" style="-fx-background-color: transparent;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="EYE" size="25" styleClass="text-field-icon" />
+                                 </graphic>
+                              </JFXButton>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </VBox>
+                  <JFXCheckBox fx:id="saveLoginRadioBtn" text="حفظ تسجيل الدخول">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <VBox alignment="CENTER" spacing="20.0">
+                     <children>
+                        <JFXButton onAction="#loginAction" prefHeight="31.0" prefWidth="420.0" styleClass="dark-button" text="تسجيل الدخول" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <AnchorPane prefHeight="52.0" prefWidth="475.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="49.0" prefWidth="475.0">
+                                 <children>
+                                    <ImageView fx:id="loadingIMG" fitHeight="71.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/loading.gif" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                              <HBox fx:id="errorBox" alignment="CENTER" prefHeight="52.0" prefWidth="471.0">
+                                 <children>
+                                    <Label fx:id="errorLabel" styleClass="error-label" text="" textFill="#ffc70f">
+                                       <font>
+                                          <Font name="Arial Bold" size="26.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+               <padding>
+                  <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+               </padding>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

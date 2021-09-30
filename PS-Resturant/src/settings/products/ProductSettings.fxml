@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToHeight="true" fitToWidth="true" focusTraversable="false" prefHeight="600.0" prefWidth="1000.0" styleClass="root" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="settings.products.ProductSettingsController">
+   <content>
+      <HBox fx:id="parentBox" alignment="CENTER">
+         <children>
+            <VBox styleClass="root" HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox alignment="CENTER_RIGHT">
+                     <children>
+                        <JFXButton contentDisplay="RIGHT" focusTraversable="false" graphicTextGap="15.0" onAction="#goToSettings" styleClass="back-button" text="رجوع">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="CHEVRON_RIGHT" size="24" />
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </HBox>
+                  <VBox alignment="CENTER" spacing="20.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="CENTER_RIGHT" fillHeight="false">
+                           <children>
+                              <JFXButton focusTraversable="false" graphicTextGap="16.0" minWidth="200.0" onAction="#newProduct" styleClass="dark-button" text="إضافة منتج" textFill="WHITE">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="PLUS" size="30" style="-fx-fill: -fx-primary-button-text;" />
+                                 </graphic>
+                              </JFXButton>
+                              <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <AnchorPane>
+                                       <children>
+                                          <TextField fx:id="searchComBox" alignment="CENTER" focusTraversable="false" prefHeight="40.0" prefWidth="405.0" promptText="بحث  اسم/باركود المنتج" styleClass="text-field-search" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </TextField>
+                                          <FontAwesomeIconView glyphName="SEARCH" size="20" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="8.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                        <JFXTreeTableView fx:id="productsTable" minHeight="400.0" nodeOrientation="RIGHT_TO_LEFT" styleClass="table" VBox.vgrow="ALWAYS">
+                           <columns>
+                              <TreeTableColumn fx:id="productNameCol" prefWidth="190.0" text="المنتج" />
+                              <TreeTableColumn fx:id="guestPriceCol" prefWidth="140.0" text="سعر العميل" />
+                              <TreeTableColumn fx:id="staffPriceCol" prefWidth="140.0" text="سعر الموظف" />
+                              <TreeTableColumn fx:id="editCol" maxWidth="2000.0" prefWidth="100.0" text="تعديل" />
+                              <TreeTableColumn fx:id="delCol" maxWidth="2000.0" prefWidth="100.0" text="حذف" />
+                           </columns>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <columnResizePolicy>
+                              <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </JFXTreeTableView>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </content>
+</ScrollPane>

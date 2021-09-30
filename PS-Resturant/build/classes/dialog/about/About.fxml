@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="404.0" prefWidth="403.0" style="-fx-background-color: #B2E0FF;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dialog.about.AboutController">
+    <children>
+        <Pane prefHeight="5.0" prefWidth="400.0" style="-fx-background-color: #1e3953;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+        <Pane layoutY="395.0" prefHeight="5.0" prefWidth="400.0" style="-fx-background-color: #1e3953;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+        <Pane prefHeight="400.0" prefWidth="5.0" style="-fx-background-color: #1e3953;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+        <Pane layoutX="395.0" prefHeight="400.0" prefWidth="5.0" style="-fx-background-color: #1e3953;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+        <VBox alignment="CENTER" layoutX="8.0" layoutY="10.0" prefHeight="295.0" prefWidth="354.0" spacing="11.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <children>
+                <ImageView fitHeight="69.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../img/logo01-Small.png" />
+                    </image>
+                </ImageView>
+                <VBox alignment="CENTER" spacing="2.0">
+                    <children>
+                        <Label text="PS Cafe is a Playstaion Managment System." wrapText="true">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <HBox alignment="CENTER">
+                            <children>
+                                <Label alignment="CENTER" text="Developed By ">
+                                    <font>
+                                        <Font size="17.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" onMouseClicked="#facebookAction" text="Code Clince ©" textFill="#1d0968" underline="true">
+                                    <font>
+                                        <Font size="17.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <Label alignment="CENTER" text="Product Version : PS Cafe 2.0.1">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </VBox>
+                <HBox>
+                    <children>
+                        <Separator prefWidth="340.0" />
+                    </children>
+                    <padding>
+                        <Insets left="50.0" right="50.0" />
+                    </padding>
+                </HBox>
+                <HBox>
+                    <children>
+                        <Label text="For more information :">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+                    </children>
+                    <padding>
+                        <Insets left="20.0" />
+                    </padding>
+                </HBox>
+                <VBox alignment="CENTER" spacing="10.0">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="20.0">
+                            <children>
+                                <FontAwesomeIconView glyphName="ENVELOPE" onMouseClicked="#mailAction" size="30" styleClass="btn-contact" text="">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </FontAwesomeIconView>
+                                <Label onMouseClicked="#mailAction" text="codeclinicstartup@gmail.com">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="20.0">
+                            <children>
+                                <FontAwesomeIconView glyphName="FACEBOOK" onMouseClicked="#facebookAction" size="35" styleClass="btn-contact" wrappingWidth="32.0">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </FontAwesomeIconView>
+                                <Label onMouseClicked="#facebookAction" text="Code Clinic">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="20.0">
+                            <children>
+                                <FontAwesomeIconView glyphName="YOUTUBE" onMouseClicked="#githubAction" size="35" styleClass="btn-contact">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </FontAwesomeIconView>
+                                <Label onMouseClicked="#githubAction" text="Code Clinic">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
+                            </children>
+                        </HBox>
+                    </children>
+                    <padding>
+                        <Insets left="40.0" />
+                    </padding>
+                </VBox>
+                <JFXButton focusTraversable="false" onAction="#okAction" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #141e2a;" text="ok" textFill="WHITE">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </JFXButton>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTimePicker?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane onKeyReleased="#ketAct" prefWidth="707.0" style="-fx-border-color: -fx-secondary; -fx-border-width: 5;" stylesheets="@../../../../../resources/style/base.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dialog.edit.playing.room.playing.EditPlayingRecordController">
+    <children>
+      <HBox alignment="CENTER_RIGHT" layoutX="672.0" layoutY="-3.0" onMouseDragged="#RootMouseDragged" onMousePressed="#RootMousePressed" style="-fx-background-color: -fx-secondary;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+                <JFXButton focusTraversable="false" onAction="#closeWindow" text="X" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="15.0" />
+               </font>
+                </JFXButton>
+         </children>
+      </HBox>
+        <VBox alignment="CENTER" layoutX="11.0" layoutY="36.0" prefHeight="335.0" prefWidth="688.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
+            <children>
+            <HBox alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" spacing="20.0" style="-fx-background-color: -fx-primary-button-text; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.21), 10, 0, 0, 0); -fx-background-radius: 20;">
+               <children>
+                  <VBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <FontAwesomeIconView fill="#1f1e80" glyphName="GAMEPAD" size="30" style="-fx-fill: -fx-secondary;" />
+                        <Label minWidth="89.0" text="نوع الجهاز">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                      <JFXComboBox fx:id="DeviceKind" labelFloat="true" nodeOrientation="RIGHT_TO_LEFT" prefHeight="31.0" prefWidth="370.0" promptText="النوع" style="-fx-font-weight: bold; -fx-font-size: 17;" styleClass="text-field-normal" HBox.hgrow="ALWAYS" />
+                  <VBox spacing="5.0">
+                     <children>
+                              <JFXRadioButton fx:id="m" text="Multi">
+                                  <toggleGroup>
+                                      <ToggleGroup fx:id="playStat" />
+                                  </toggleGroup>
+                              </JFXRadioButton>
+                        <Separator />
+                              <JFXRadioButton fx:id="s" text="Single" toggleGroup="$playStat" />
+                     </children>
+                     <padding>
+                        <Insets left="20.0" right="30.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+               </padding>
+            </HBox>
+            <VBox alignment="CENTER" style="-fx-background-color: -fx-primary-button-text; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.21), 10, 0, 0, 0); -fx-background-radius: 20;">
+               <children>
+                  <HBox alignment="CENTER" spacing="10.0">
+                     <children>
+                        <Label text="الوقت">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" spacing="20.0">
+                     <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="10.0" />
+                     </padding>
+                     <children>
+                              <HBox alignment="CENTER" spacing="10.0" HBox.hgrow="ALWAYS">
+                                  <children>
+                                      <JFXTimePicker fx:id="t" defaultColor="#1e3953" style="-fx-font-weight: bold;" />
+                                      <Label text="إلى:">
+                                          <font>
+                                              <Font name="System Bold" size="20.0" />
+                                          </font>
+                                      </Label>
+                                  </children>
+                              </HBox>
+                              <HBox alignment="CENTER" spacing="10.0" HBox.hgrow="ALWAYS">
+                                  <children>
+                                      <JFXTimePicker fx:id="f" defaultColor="#1e3953" style="-fx-font-weight: bold;" />
+                                      <Label text="من:">
+                                          <font>
+                                              <Font name="System Bold" size="20.0" />
+                                          </font>
+                                      </Label>
+                                  </children>
+                              </HBox>
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </VBox>
+            <VBox alignment="CENTER_RIGHT">
+               <children>
+                        <TextField fx:id="reason" alignment="CENTER_RIGHT" promptText="سبب التعديل" styleClass="text-field-normal" />
+                    <Label fx:id="error" prefHeight="21.0" style="-fx-text-fill: red;" text="يجب ادخال سبب التعديل" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+                <HBox alignment="CENTER" spacing="90.0">
+                    <children>
+                        <JFXButton cancelButton="true" focusTraversable="false" onAction="#closeWindow" prefWidth="9000.0" ripplerFill="BLACK" styleClass="back-button" text="الغاء">
+                            <font>
+                                <Font name="System Bold" size="22.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </JFXButton>
+                        <JFXButton focusTraversable="false" onAction="#editAction" prefWidth="9000.0" styleClass="dark-button" text="تعديل">
+                            <font>
+                                <Font name="System Bold" size="22.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                        </JFXButton>
+                    </children>
+               <padding>
+                  <Insets left="60.0" right="60.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="-15.0" />
+               </VBox.margin>
+                </HBox>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+            </padding>
+        </VBox>
+    </children>
+</AnchorPane>

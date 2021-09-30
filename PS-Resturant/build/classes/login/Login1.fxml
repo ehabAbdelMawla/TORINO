@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="650.0" prefWidth="800.0" styleClass="root" stylesheets="@../resources/style/base.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+   <children>
+      <VBox styleClass="root" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="CENTER" spacing="30.0" style="-fx-background-color: -fx-secondary-light; -fx-background-radius: 20;">
+               <children>
+                  <HBox alignment="CENTER" style="-fx-background-color: -fx-primary; -fx-background-radius: 15 15 0 0;">
+                     <children>
+                        <Label text="تسجيل الدخول">
+                           <font>
+                              <Font name="Arial Bold" size="55.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="-50.0" right="-50.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <VBox alignment="CENTER" spacing="40.0">
+                     <children>
+                        <AnchorPane>
+                           <children>
+                              <TextField fx:id="UserNameField" alignment="CENTER_RIGHT" layoutX="9.0" layoutY="9.0" onAction="#loginAction" prefHeight="52.0" prefWidth="380.0" promptText="اسم المستخدم" styleClass="text-field-login" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets right="55.0" />
+                                 </padding>
+                              </TextField>
+                              <FontAwesomeIconView glyphName="USER" layoutX="346.0" layoutY="34.0" size="25" styleClass="text-field-icon" AnchorPane.bottomAnchor="13.940290451049805" AnchorPane.rightAnchor="14.35714340209961" AnchorPane.topAnchor="12.571428298950195" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane>
+                           <children>
+                              <TextField fx:id="PasswordTextField" alignment="CENTER_RIGHT" layoutX="9.0" layoutY="9.0" onAction="#loginAction" prefHeight="52.0" prefWidth="380.0" promptText="كلمة المرور" styleClass="text-field-login" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets right="55.0" />
+                                 </padding>
+                              </TextField>
+                              <PasswordField fx:id="PasswordField" alignment="CENTER_RIGHT" onAction="#loginAction" promptText="كلمة المرور" styleClass="text-field-login" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets right="55.0" />
+                                 </padding>
+                              </PasswordField>
+                              <FontAwesomeIconView glyphName="LOCK" layoutX="346.0" layoutY="34.0" size="25" styleClass="text-field-icon" AnchorPane.bottomAnchor="13.940290451049805" AnchorPane.rightAnchor="14.35714340209961" AnchorPane.topAnchor="12.571428298950195" />
+                              <JFXButton contentDisplay="GRAPHIC_ONLY" focusTraversable="false" onMousePressed="#eyeBTN" onMouseReleased="#eyeBTN2" prefHeight="53.0" prefWidth="45.0" ripplerFill="#dadada" style="-fx-background-color: transparent;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="EYE" size="25" styleClass="text-field-icon" />
+                                 </graphic>
+                              </JFXButton>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </VBox>
+                  <JFXCheckBox fx:id="saveLoginRadioBtn" styleClass="check-box-secondary" text="حفظ تسجيل الدخول">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <VBox alignment="CENTER" spacing="20.0">
+                     <children>
+                        <JFXButton onAction="#loginAction" prefHeight="31.0" prefWidth="420.0" styleClass="light-button" text="تسجيل الدخول" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <AnchorPane prefHeight="52.0" prefWidth="475.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="49.0" prefWidth="475.0" visible="false">
+                                 <children>
+                                    <ImageView fx:id="loadingIMG" fitHeight="71.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/loading.gif" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                              <HBox fx:id="errorBox" alignment="CENTER" prefHeight="52.0" prefWidth="471.0">
+                                 <children>
+                                    <Label fx:id="errorLabel" styleClass="error-label" text="" textFill="#ffc70f">
+                                       <font>
+                                          <Font name="Arial Bold" size="26.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+               <padding>
+                  <Insets bottom="50.0" left="50.0" right="50.0" />
+               </padding>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+         </padding>
+      </VBox>
+      <JFXButton focusTraversable="false" onAction="#closeWindow" style="-fx-background-radius: 0 15 0 0;" styleClass="close-button-stage" text="X" textFill="WHITE" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0">
+         <font>
+            <Font name="Comic Sans MS Bold" size="15.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

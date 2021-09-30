@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane onKeyReleased="#KeyPrs" prefHeight="510.0" prefWidth="1200" styleClass="root" stylesheets="@../resources/style/base.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="customerdata.ViewCustomerController">
+    <children>
+        <HBox alignment="CENTER" layoutX="263.0" layoutY="166.0" styleClass="root" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <AnchorPane HBox.hgrow="ALWAYS">
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                    <children>
+                        <VBox fx:id="data_Box" alignment="CENTER" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <VBox alignment="CENTER" spacing="35.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 20, 0, 0, 0);" VBox.vgrow="ALWAYS">
+                                    <children>
+                                        <JFXTextField fx:id="name_TextField" labelFloat="true" nodeOrientation="RIGHT_TO_LEFT" promptText="الأسم" styleClass="text-field-normal" VBox.vgrow="ALWAYS" />
+                                        <JFXTextField fx:id="phone_TextField" labelFloat="true" nodeOrientation="RIGHT_TO_LEFT" promptText="الموبايل" styleClass="text-field-normal" VBox.vgrow="ALWAYS" />
+                                        <JFXTextField fx:id="email_TextField" labelFloat="true" nodeOrientation="RIGHT_TO_LEFT" promptText="البريد الإلكتروني" styleClass="text-field-normal" VBox.vgrow="ALWAYS" />
+                                        <JFXTextField fx:id="address_TextField" labelFloat="true" nodeOrientation="RIGHT_TO_LEFT" promptText="العنوان" styleClass="text-field-normal" VBox.vgrow="ALWAYS" />
+                                        <JFXTextField fx:id="notes_TextField" labelFloat="true" nodeOrientation="RIGHT_TO_LEFT" promptText="الملاحظات" styleClass="text-field-normal" VBox.vgrow="ALWAYS" />
+                                        <HBox fx:id="radioBox" alignment="CENTER" spacing="30.0">
+                                            <children>
+                                                <JFXRadioButton fx:id="client_Radio" selected="true" text="عميل">
+                                                    <toggleGroup>
+                                                        <ToggleGroup fx:id="customerTypeGroup" />
+                                                    </toggleGroup>
+                                                </JFXRadioButton>
+                                                <JFXRadioButton fx:id="staff_Radio" text="موظف" toggleGroup="$customerTypeGroup" />
+                                                <JFXRadioButton fx:id="owner_Radio" text="مالك" toggleGroup="$customerTypeGroup" />
+                                                <HBox fx:id="dayNightBox" spacing="20.0">
+                                                    <children>
+                                                        <Separator orientation="VERTICAL" />
+                                                        <HBox alignment="CENTER" spacing="15.0">
+                                                            <children>
+                                                                <JFXRadioButton fx:id="nightRadioButton" focusTraversable="false" text="مسائي">
+                                                                    <toggleGroup>
+                                                                        <ToggleGroup fx:id="dayNightGroup" />
+                                                                    </toggleGroup>
+                                                                </JFXRadioButton>
+                                                                <JFXRadioButton fx:id="dayRadioButton" focusTraversable="false" selected="true" text="صباحي" toggleGroup="$dayNightGroup" />
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </HBox>
+                                        <HBox fx:id="buttons_box" alignment="CENTER" spacing="50.0">
+                                            <children>
+                                                <JFXButton graphicTextGap="15.0" onAction="#discardAction" prefWidth="154.0" styleClass="close-button" text="إغلاق">
+                                                    <font>
+                                                        <Font name="System Bold" size="19.0" />
+                                                    </font>
+                                                    <graphic>
+                                                        <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" size="20" />
+                                                    </graphic>
+                                                </JFXButton>
+                                                <JFXButton graphicTextGap="15.0" onAction="#saveAction" prefWidth="154.0" styleClass="confirm-button" text="حفظ">
+                                                    <font>
+                                                        <Font name="System Bold" size="19.0" />
+                                                    </font>
+                                                    <graphic>
+                                                        <FontAwesomeIconView fill="WHITE" glyphName="SAVE" size="20" styleClass="dark-button" />
+                                                    </graphic>
+                                                </JFXButton>
+                                            </children>
+                                            <VBox.margin>
+                                                <Insets bottom="-10.0" />
+                                            </VBox.margin>
+                                        </HBox>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                                    </padding>
+                                </VBox>
+                            </children>
+                            <padding>
+                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                            </padding>
+                        </VBox>
+                        <VBox fx:id="RestaurantTransactions_Box" alignment="CENTER" layoutX="10.0" layoutY="10.0" spacing="20.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <children>
+                                <HBox alignment="CENTER_RIGHT" fillHeight="false" spacing="20.0">
+                                    <children>
+                                        <HBox alignment="CENTER" spacing="15.0">
+                                            <children>
+                                                <JFXRadioButton fx:id="totalRadio" focusTraversable="false" selected="true" text="الكل">
+                                                    <font>
+                                                        <Font name="System Bold" size="17.0" />
+                                                    </font>
+                                                    <toggleGroup>
+                                                        <ToggleGroup fx:id="debtGroup" />
+                                                    </toggleGroup>
+                                                </JFXRadioButton>
+                                                <JFXRadioButton focusTraversable="false" text="آجل" toggleGroup="$debtGroup">
+                                                    <font>
+                                                        <Font name="System Bold" size="17.0" />
+                                                    </font>
+                                                </JFXRadioButton>
+                                            </children>
+                                        </HBox>
+                                        <AnchorPane HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <TextField fx:id="filterField" focusTraversable="false" layoutX="353.0" minWidth="200.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="31.0" prefWidth="250.0" promptText="بحث برقم الفاتورة" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                    <styleClass>
+                                                        <String fx:value="text-field-normal" />
+                                                        <String fx:value="text-field-search" />
+                                                    </styleClass>
+                                                </TextField>
+                                                <FontAwesomeIconView fill="#c9c9c9" glyphName="SEARCH" size="25" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="7.0" />
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                    <padding>
+                                        <Insets left="20.0" right="20.0" />
+                                    </padding>
+                                </HBox>
+                                <JFXTreeTableView fx:id="OrdersTable" styleClass="table" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+                                    <columns>
+                              <TreeTableColumn fx:id="statusBox_Col" maxWidth="3000.0" prefWidth="110.0" text="الحالة" />
+                                        <TreeTableColumn fx:id="paidButton_Col" maxWidth="3000.0" prefWidth="110.0" text="دفع" />
+                                        <TreeTableColumn fx:id="debt_Col" prefWidth="130.0" text="الآجل" />
+                                        <TreeTableColumn fx:id="amountPaid_Col" prefWidth="130.0" text="المدفوع" />
+                                        <TreeTableColumn fx:id="discount_Col" prefWidth="110.0" text="الخصم" />
+                                        <TreeTableColumn fx:id="subTotalAmount_Col" prefWidth="110.0" text="الإجمالي" />
+                                        <TreeTableColumn fx:id="billKind_Col" prefWidth="120.0" text="نوع الفاتورة" />
+                                        <TreeTableColumn fx:id="billNumber_Col" prefWidth="120.0" text="رقم الفاتورة" />
+                                        <TreeTableColumn fx:id="date_Col" prefWidth="120.0" text="التاريخ" />
+                                        <TreeTableColumn fx:id="time_Col" prefWidth="120.0" text="الوقت" />
+                                    </columns>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </padding>
+                                    <columnResizePolicy>
+                                        <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
+                                </JFXTreeTableView>
+                                <HBox alignment="CENTER" spacing="4.0">
+                                    <children>
+                                        <HBox alignment="CENTER_LEFT" spacing="50.0" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <JFXButton cancelButton="true" focusTraversable="false" graphicTextGap="15.0" minWidth="100.0" onAction="#closeAction" prefWidth="154.0" styleClass="close-button" text="إغلاق">
+                                                    <font>
+                                                        <Font name="System Bold" size="19.0" />
+                                                    </font>
+                                                    <graphic>
+                                                        <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" size="20" />
+                                                    </graphic>
+                                                </JFXButton>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER">
+                                            <children>
+                                                <Label fx:id="totalDebt_Label" text="0 ريال">
+                                                    <font>
+                                                        <Font name="System Bold" size="17.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label text="إجمالي الآجل: ">
+                                                    <font>
+                                                        <Font name="System Bold" size="17.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </HBox>
+                                        <Separator orientation="VERTICAL" />
+                                        <HBox alignment="CENTER">
+                                            <children>
+                                                <Label fx:id="totalPaid_Label" text="0 ريال">
+                                                    <font>
+                                                        <Font name="System Bold" size="17.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label text="إجمالي المدفوع: ">
+                                                    <font>
+                                                        <Font name="System Bold" size="17.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                        <VBox fx:id="PlayingRoomsTransactions_Box" alignment="CENTER" layoutX="20.0" layoutY="20.0" spacing="20.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <children>
+                                <JFXTreeTableView fx:id="playingRoomsTable" minHeight="400.0" styleClass="table" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TreeTableColumn fx:id="UserCol" prefWidth="148.0" text="الكاشير" />
+                                        <TreeTableColumn fx:id="incomeCol" prefWidth="116.0" text="الصافي" />
+                                        <TreeTableColumn fx:id="disCol" prefWidth="82.0" text="الخصم" />
+                                        <TreeTableColumn fx:id="preCol" prefWidth="95.0" text="اجمالي الحساب" />
+                                        <TreeTableColumn fx:id="toCol" prefWidth="100.0" text="الي" />
+                                        <TreeTableColumn fx:id="fromCol" prefWidth="100.0" text="من" />
+                                        <TreeTableColumn fx:id="RoomNumCol" prefWidth="126.0" text="رقم الغرفة" />
+                                        <TreeTableColumn fx:id="RecieptIdCol" prefWidth="154.0" text="رقم الفاتورة" />
+                                        <TreeTableColumn fx:id="DateCol" prefWidth="154.0" text="اليوم" />
+                                    </columns>
+                                    <padding>
+                                        <Insets bottom="10.0" top="10.0" />
+                                    </padding>
+                                    <columnResizePolicy>
+                                        <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
+                                </JFXTreeTableView>
+                                <HBox alignment="CENTER" spacing="4.0">
+                                    <children>
+                                        <HBox alignment="CENTER_LEFT" spacing="50.0" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <JFXButton cancelButton="true" focusTraversable="false" graphicTextGap="15.0" minWidth="100.0" onAction="#closeAction" prefWidth="154.0" styleClass="close-button" text="إغلاق">
+                                                    <font>
+                                                        <Font name="System Bold" size="19.0" />
+                                                    </font>
+                                                    <graphic>
+                                                        <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" size="20" />
+                                                    </graphic>
+                                                </JFXButton>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER">
+                                            <children>
+                                                <Label fx:id="totalPlayingRooms" text="0">
+                                                    <font>
+                                                        <Font name="System Bold" size="17.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label text="إجمالي المدفوع: ">
+                                                    <font>
+                                                        <Font name="System Bold" size="17.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </AnchorPane>
+                <VBox fx:id="ButtonsSideBar" alignment="CENTER_RIGHT" HBox.hgrow="NEVER">
+                    <children>
+                        <JFXButton fx:id="data_Btn" contentDisplay="TOP" focusTraversable="false" graphicTextGap="25.0" maxHeight="1.7976931348623157E308" minWidth="132.0" onAction="#goToData" prefHeight="510.0" prefWidth="172.0" style="-fx-background-radius: 0;" styleClass="cashier-buttons" text="البيانات">
+                            <font>
+                                <Font name="System Bold" size="25.0" />
+                            </font>
+                            <graphic>
+                                <FontAwesomeIconView glyphName="TABLE" size="40" />
+                            </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="RestaurantTransactions_Btn" contentDisplay="TOP" focusTraversable="false" graphicTextGap="25.0" minWidth="132.0" onAction="#goToTransactions" prefHeight="510.0" prefWidth="172.0" style="-fx-background-radius: 0;" styleClass="cashier-buttons" text="المطعم" textAlignment="CENTER" wrapText="true">
+                            <font>
+                                <Font name="System Bold" size="25.0" />
+                            </font>
+                            <graphic>
+                                <MaterialDesignIconView glyphName="FOOD" size="40" />
+                            </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="playingRoomsTransactions_Btn" contentDisplay="TOP" focusTraversable="false" graphicTextGap="25.0" minWidth="132.0" onAction="#goToPlayingRooms" prefHeight="510.0" prefWidth="172.0" style="-fx-background-radius: 0;" styleClass="cashier-buttons" text="اللعب" textAlignment="CENTER" wrapText="true">
+                            <font>
+                                <Font name="System Bold" size="25.0" />
+                            </font>
+                            <graphic>
+                                <FontAwesomeIconView glyphName="GAMEPAD" size="40" />
+                            </graphic>
+                        </JFXButton>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

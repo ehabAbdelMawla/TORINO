@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyReleased="#keyAct" onMouseDragged="#RootMouseDragged" onMousePressed="#RootMousePressed" prefHeight="193.0" prefWidth="459.0" style="-fx-border-color: -fx-seondary-lighter; -fx-border-width: 0 5 5 5;" stylesheets="@../../../resources/style/base.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dialog.alert.ok.OkAlertController">
+    <children>
+        <VBox alignment="CENTER" layoutX="13.0" layoutY="40.0" styleClass="root" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
+            <children>
+                <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                    <children>
+                        <Label fx:id="header" alignment="CENTER_RIGHT" text="#####" textAlignment="CENTER" wrapText="true">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                    </children>
+               <padding>
+                  <Insets bottom="10.0" left="20.0" right="20.0" />
+               </padding>
+                </HBox>
+                <JFXButton onAction="#closeWindow" prefHeight="35.0" prefWidth="122.0" ripplerFill="#83c3ee" styleClass="light-button" text="موافق">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </JFXButton>
+            </children>
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+        </VBox>
+      <HBox alignment="CENTER_RIGHT" onMouseDragged="#RootMouseDragged" onMousePressed="#RootMousePressed" style="-fx-background-color: -fx-seondary-lighter;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+              <JFXButton focusTraversable="false" onAction="#closeWindow" text="X" textFill="WHITE">
+                  <font>
+                      <Font name="Comic Sans MS Bold" size="15.0" />
+                  </font>
+              </JFXButton>
+         </children>
+      </HBox>
+    </children>
+</AnchorPane>

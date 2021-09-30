@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" focusTraversable="false" onKeyReleased="#KeyPrs" prefHeight="535.0" prefWidth="975.0" styleClass="root" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="archive.daydetails.ArchiveDayDetailsController">
+    <content>
+        <VBox spacing="14.0" styleClass="root">
+            <children>
+                <VBox fx:id="playingBox" alignment="CENTER" spacing="5.0" style="-fx-background-color: #fff; -fx-border-width: 3; -fx-border-color: #000000;" VBox.vgrow="ALWAYS">
+                    <children>
+                        <Label text="صالة اللعب">
+                            <font>
+                                <Font name="System Bold" size="30.0" />
+                            </font>
+                        </Label>
+                        <JFXTreeTableView fx:id="myTable" focusTraversable="false" minHeight="450.0" styleClass="table" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TreeTableColumn fx:id="customerName" maxWidth="3000.0" prefWidth="138.0" text="العميل" />
+                                <TreeTableColumn fx:id="UserCol" prefWidth="138.0" text="الكاشير" />
+                                <TreeTableColumn fx:id="INCol" maxWidth="6080.0" prefWidth="138.0" text="الصافي" />
+                                <TreeTableColumn fx:id="disCol" prefWidth="138.0" text="الخصم" />
+                                <TreeTableColumn fx:id="preCol" prefWidth="138.0" text="اجمالي الحساب" />
+                                <TreeTableColumn fx:id="toCol" prefWidth="138.0" text="الي" />
+                                <TreeTableColumn fx:id="fromCol" prefWidth="138.0" text="من" />
+                              
+                          
+                                <TreeTableColumn fx:id="RoomNumCol" maxWidth="4000.0" prefWidth="138.0" text="رقم الغرفة" />
+                                <TreeTableColumn fx:id="RecieptIdCol" prefWidth="154.0" text="رقم الفاتورة" />
+                            </columns>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <columnResizePolicy>
+                                <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                            </columnResizePolicy>
+                        </JFXTreeTableView>
+                    </children>
+                    <padding>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                    </padding>
+                </VBox>
+                <VBox alignment="CENTER" spacing="5.0" style="-fx-background-color: #fff; -fx-border-color: #000000; -fx-border-width: 3;" VBox.vgrow="ALWAYS">
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                    <children>
+                        <Label text="المطعم">
+                            <font>
+                                <Font name="System Bold" size="30.0" />
+                            </font>
+                        </Label>
+                        <JFXTreeTableView fx:id="DayOrdersTable" focusTraversable="false" minHeight="425.0" styleClass="table" tableMenuButtonVisible="true">
+                            <columns>
+                        <TreeTableColumn fx:id="statusBox_Col" maxWidth="3000.0" prefWidth="120.0" text="الحالة" />
+                                <TreeTableColumn fx:id="customer_Col" prefWidth="120.0" text="العميل" />
+                                <TreeTableColumn fx:id="cashier_Col" prefWidth="120.0" text="الكاشير" />
+                                <TreeTableColumn fx:id="debt_Col" prefWidth="130.0" text="الآجل" />
+                                <TreeTableColumn fx:id="amountPaid_Col" prefWidth="130.0" text="المدفوع" />
+                                <TreeTableColumn fx:id="totalAmount_Col" prefWidth="100.0" text="الصافي" />
+                                <TreeTableColumn fx:id="discount_Col" prefWidth="110.0" text="الخصم" />
+                                <TreeTableColumn fx:id="subTotalAmount_Col" prefWidth="110.0" text="الإجمالي" />
+                                <TreeTableColumn fx:id="billKind_Col" prefWidth="120.0" text="نوع الفاتورة" />
+                                <TreeTableColumn fx:id="billNumber_Col" prefWidth="120.0" text="رقم الفاتورة" />
+                                <TreeTableColumn fx:id="date_Col" prefWidth="120.0" text="التاريخ" />
+                                <TreeTableColumn fx:id="time_Col" prefWidth="120.0" text="الوقت" />
+                            </columns>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <columnResizePolicy>
+                                <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                            </columnResizePolicy>
+                        </JFXTreeTableView>
+                    </children>
+                </VBox>
+                <VBox alignment="CENTER" spacing="15.0" style="-fx-background-color: #fff; -fx-border-color: #000000; -fx-border-width: 3;" VBox.vgrow="ALWAYS">
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                    </padding>
+                    <children>
+                        <Label text="المصروفات">
+                            <font>
+                                <Font name="System Bold" size="30.0" />
+                            </font>
+                        </Label>
+                        <JFXTreeTableView fx:id="table3" focusTraversable="false" minHeight="450.0" styleClass="table" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TreeTableColumn fx:id="U3COL" prefWidth="366.0" text="المستخدم" />
+                                <TreeTableColumn fx:id="P3Col" prefWidth="366.0" text="التكلفه" />
+                                <TreeTableColumn fx:id="N3Col" prefWidth="366.0" text="الوجهه" />
+                            </columns>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <columnResizePolicy>
+                                <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                            </columnResizePolicy>
+                        </JFXTreeTableView>
+                        <JFXTextArea fx:id="EXNotes" editable="false" focusColor="#405aa800" focusTraversable="false" minHeight="120.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-background-color: #B2E0FF;" unFocusColor="#4d4d4d00">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                            <padding>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </padding>
+                        </JFXTextArea>
+                    </children>
+                </VBox>
+                <HBox alignment="TOP_CENTER">
+                    <children>
+                        <JFXButton alignment="CENTER" cancelButton="true" defaultButton="true" focusTraversable="false" onAction="#closeWindow" prefHeight="51.0" prefWidth="518.0" ripplerFill="BLACK" styleClass="light-button" text="إغلاق">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </JFXButton>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" />
+                    </padding>
+                </HBox>
+            </children>
+            <padding>
+                <Insets left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </VBox>
+    </content>
+</ScrollPane>

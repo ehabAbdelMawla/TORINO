@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="AP" onKeyPressed="#escact" prefWidth="1000.0" style="-fx-background-color: #fff; -fx-border-color: -fx-seondary-lighter; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="playing.rooms.RoomController">
+    <children>
+        <AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <ScrollPane fitToHeight="true" fitToWidth="true" focusTraversable="false" layoutY="32.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="52.0">
+                    <content>
+                        <BorderPane>
+                            <center>
+                                <AnchorPane styleClass="root" BorderPane.alignment="CENTER">
+                                    <children>
+                                        <HBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <children>
+                                                <VBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #fff; -fx-border-color: #000000; -fx-border-width: 3;" HBox.hgrow="ALWAYS">
+                                                    <children>
+                                                        <VBox alignment="CENTER" prefHeight="141.0" prefWidth="399.0" spacing="10.0" style="-fx-border-radius: 10; -fx-border-color: -fx-primary-text; -fx-border-width: 2; -fx-background-color: derive(-fx-secondary-text,-3%);">
+                                                            <children>
+                                                <AnchorPane>
+                                                   <children>
+                                                                      <HBox alignment="CENTER" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+                                                                          <children>
+                                                                              <Label text="الكافيتريا">
+                                                                                  <font>
+                                                                                      <Font name="System Bold" size="22.0" />
+                                                                                  </font>
+                                                                              </Label>
+                                                                              <ImageView fitHeight="43.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                                                                  <image>
+                                                                                      <Image url="@../../img/hamburger.png" />
+                                                                                  </image>
+                                                                              </ImageView>
+                                                                          </children>
+                                                                      </HBox>
+                                                      <JFXButton fx:id="barCodeButton" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" minWidth="60.0" onAction="#barCodeToggle" style="-fx-background-radius: 0 10 0 0;" styleClass="light-button" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <graphic>
+                                                            <MaterialDesignIconView fx:id="barcodeIcon" glyphName="BARCODE_SCAN" size="35" />
+                                                         </graphic>
+                                                         <padding>
+                                                            <Insets bottom="2.0" left="2.0" right="2.0" top="5.0" />
+                                                         </padding>
+                                                      </JFXButton>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets left="-10.0" right="-10.0" />
+                                                   </VBox.margin>
+                                                </AnchorPane>
+                                                <AnchorPane>
+                                                   <children>
+                                                      <VBox fx:id="chooseFromList_Box" alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <children>
+                                                                            <JFXComboBox fx:id="proCategCombo" nodeOrientation="RIGHT_TO_LEFT" onMousePressed="#fillCategNames" prefHeight="26.0" prefWidth="300.0" promptText="الفئة" style="-fx-font-size: 15; -fx-font-weight: bold;" styleClass="text-field-normal" />
+                                                                            <HBox alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="61.0" prefWidth="404.0" spacing="20.0">
+                                                                                <children>
+                                                                                    <JFXComboBox fx:id="Drinks" nodeOrientation="RIGHT_TO_LEFT" onMousePressed="#fillDrinksNames" prefHeight="30.0" prefWidth="200.0" promptText="الصنف" style="-fx-font-size: 15; -fx-font-weight: bold;" styleClass="text-field-normal" HBox.hgrow="ALWAYS" />
+                                                                                    <Spinner fx:id="num" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="97.0" />
+                                                                                </children>
+                                                                                <padding>
+                                                                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                                                </padding>
+                                                                            </HBox>
+                                                                            <JFXButton alignment="CENTER" graphicTextGap="15.0" onAction="#addDrink" prefWidth="173.0" style="-fx-background-radius: 10;" styleClass="dark-button" text="إضافه">
+                                                                                <cursor>
+                                                                                    <Cursor fx:constant="HAND" />
+                                                                                </cursor>
+                                                                                <font>
+                                                                                    <Font name="System Bold" size="15.0" />
+                                                                                </font>
+                                                                                <graphic>
+                                                                                    <FontAwesomeIconView glyphName="PLUS" size="20" />
+                                                                                </graphic>
+                                                                            </JFXButton>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox fx:id="chooseFromBarCode_Box" alignment="CENTER" spacing="20.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <children>
+                                                            <Label text="باركود">
+                                                               <font>
+                                                                  <Font name="System Bold" size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <TextField fx:id="barocdeTextField" alignment="CENTER" onAction="#barcodeAction" promptText="باركود" styleClass="text-field-normal" />
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                                            </children>
+                                                            <padding>
+                                                                <Insets bottom="10.0" left="10.0" right="10.0" />
+                                                            </padding>
+                                                            <VBox.margin>
+                                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                            </VBox.margin>
+                                                        </VBox>
+                                                        <JFXTreeTableView fx:id="DrinkTable" focusTraversable="false" minHeight="220.0" prefHeight="279.0" prefWidth="428.0" style="-fx-background-radius: 0; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.05), 20, 0, 0, 0);" styleClass="table" VBox.vgrow="ALWAYS">
+                                                            <columns>
+                                                                <TreeTableColumn fx:id="DrinkDelCol" maxWidth="2000.0" prefWidth="81.5999755859375" text="حذف" />
+                                                                <TreeTableColumn fx:id="DrinkEditPrice" maxWidth="2300.0" prefWidth="110.0" text="تعديل" />
+                                                                <TreeTableColumn fx:id="DrinkPriceCol" prefWidth="84.0" text="السعر" />
+                                                                <TreeTableColumn fx:id="NumCol" maxWidth="3000.0" prefWidth="56.800048828125" text="العدد" />
+                                                                <TreeTableColumn fx:id="DrinkNameCol" maxWidth="7000.0" prefWidth="114.0" text="الصنف" />
+                                                            </columns>
+                                                            <columnResizePolicy>
+                                                                <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                            </columnResizePolicy>
+                                                            <VBox.margin>
+                                                                <Insets />
+                                                            </VBox.margin>
+                                                        </JFXTreeTableView>
+                                                    </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #fff; -fx-border-width: 3; -fx-border-color: #000000;" HBox.hgrow="ALWAYS">
+                                                    <children>
+                                                        <VBox alignment="CENTER" style="-fx-border-radius: 10; -fx-border-color: -fx-primary-text; -fx-border-width: 2; -fx-background-color: derive(-fx-secondary-text,-3%);">
+                                                            <children>
+                                                                <HBox alignment="CENTER" spacing="20.0">
+                                                                    <children>
+                                                                        <JFXRadioButton fx:id="MultiRadioButton" text="Multi">
+                                                         <toggleGroup>
+                                                                                <ToggleGroup fx:id="playingToggle" />
+                                                         </toggleGroup></JFXRadioButton>
+                                                                        <JFXRadioButton fx:id="singleRadioButton" selected="true" text="Single" toggleGroup="$playingToggle" />
+                                                                        <JFXComboBox fx:id="DeviceKind" nodeOrientation="RIGHT_TO_LEFT" onMousePressed="#fillDeviceNames" prefHeight="26.0" prefWidth="140.0" promptText="النوع" style="-fx-font-size: 15; -fx-font-weight: bold;" styleClass="text-field-normal" />
+                                                                        <HBox alignment="CENTER" spacing="20.0">
+                                                                            <children>
+                                                                                <Label text="نوع الجهاز">
+                                                                                    <font>
+                                                                                        <Font name="System Bold" size="22.0" />
+                                                                                    </font>
+                                                                                </Label>
+                                                                            </children>
+                                                                        </HBox>
+                                                                          <FontAwesomeIconView fill="#1f1e80" glyphName="GAMEPAD" size="30" style="-fx-fill: -fx-secondary;" />
+                                                                    </children>
+                                                                    <padding>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                    </padding>
+                                                                </HBox>
+                                                            </children>
+                                                            <padding>
+                                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                            </padding>
+                                                            <VBox.margin>
+                                                                <Insets left="10.0" right="10.0" top="10.0" />
+                                                            </VBox.margin>
+                                                        </VBox>
+                                                        <HBox alignment="CENTER" prefHeight="107.0" prefWidth="628.0" spacing="10.0">
+                                                            <children>
+                                                                <HBox alignment="CENTER" minWidth="271.0" spacing="5.0" style="-fx-border-color: -fx-primary-text; -fx-border-radius: 10; -fx-border-width: 2; -fx-background-color: derive(-fx-secondary-text,-3%);" HBox.hgrow="ALWAYS">
+                                                                    <children>
+                                                                        <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="TOP" onAction="#endTimer" ripplerFill="BLACK" text="إنهاء" textAlignment="CENTER">
+                                                                            <graphic>
+                                                                                <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                                                    <image>
+                                                                                        <Image url="@../../img/stop.png" />
+                                                                                    </image>
+                                                                                </ImageView>
+                                                                            </graphic>
+                                                                            <font>
+                                                                                <Font name="System Bold" size="16.0" />
+                                                                            </font>
+                                                                            <cursor>
+                                                                                <Cursor fx:constant="HAND" />
+                                                                            </cursor>
+                                                                        </JFXButton>
+                                                                        <JFXButton fx:id="pauseTimerButton" alignment="CENTER" buttonType="RAISED" contentDisplay="TOP" onAction="#pauseTimer" ripplerFill="BLACK" text="إيقاف مؤقت" textAlignment="CENTER" wrapText="true">
+                                                                            <graphic>
+                                                                                <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                                                    <image>
+                                                                                        <Image url="@../../img/pause.png" />
+                                                                                    </image>
+                                                                                </ImageView>
+                                                                            </graphic>
+                                                                            <font>
+                                                                                <Font name="System Bold" size="16.0" />
+                                                                            </font>
+                                                                            <cursor>
+                                                                                <Cursor fx:constant="HAND" />
+                                                                            </cursor>
+                                                                        </JFXButton>
+                                                                        <JFXButton fx:id="startTimerButton" alignment="CENTER" buttonType="RAISED" contentDisplay="TOP" onAction="#startTimer" ripplerFill="BLACK" text="بدء" textAlignment="CENTER">
+                                                                            <graphic>
+                                                                                <ImageView fitHeight="52.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                                                    <image>
+                                                                                        <Image url="@../../img/play.png" />
+                                                                                    </image>
+                                                                                </ImageView>
+                                                                            </graphic>
+                                                                            <font>
+                                                                                <Font name="System Bold" size="16.0" />
+                                                                            </font>
+                                                                            <cursor>
+                                                                                <Cursor fx:constant="HAND" />
+                                                                            </cursor>
+                                                                        </JFXButton>
+                                                                    </children>
+                                                                    <padding>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                    </padding>
+                                                                </HBox>
+                                                                <VBox alignment="CENTER" style="-fx-border-radius: 10; -fx-border-color: -fx-primary-text; -fx-border-width: 2; -fx-background-color: derive(-fx-secondary-text,-3%);" HBox.hgrow="ALWAYS">
+                                                                    <children>
+                                                                        <HBox alignment="CENTER" spacing="20.0">
+                                                                            <children>
+                                                                                <Label text="الوقت">
+                                                                                    <font>
+                                                                                        <Font name="System Bold" size="22.0" />
+                                                                                    </font>
+                                                                                </Label>
+                                                                                <ImageView fitHeight="43.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                                                                    <image>
+                                                                                        <Image url="@../../img/time.png" />
+                                                                                    </image>
+                                                                                </ImageView>
+                                                                            </children>
+                                                                            <padding>
+                                                                                <Insets left="5.0" right="5.0" top="5.0" />
+                                                                            </padding>
+                                                                        </HBox>
+                                                                        <HBox alignment="CENTER" spacing="15.0">
+                                                                            <children>
+                                                                                <VBox alignment="CENTER">
+                                                                                    <children>
+                                                                                        <Label prefHeight="21.0" prefWidth="61.0" text="Hours" />
+                                                                                        <Spinner fx:id="hours" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="65.0" />
+                                                                                    </children>
+                                                                                </VBox>
+                                                                                <VBox alignment="CENTER">
+                                                                                    <children>
+                                                                                        <Label prefHeight="21.0" prefWidth="58.0" text="Min" />
+                                                                                        <Spinner fx:id="mins" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="65.0" />
+                                                                                    </children>
+                                                                                </VBox>
+                                                                                <JFXToggleButton fx:id="kindOfTime" contentDisplay="TOP" onAction="#diabledMin_HourInputs" text="Open" />
+                                                                            </children>
+                                                                            <padding>
+                                                                                <Insets bottom="4.0" left="5.0" right="5.0" top="5.0" />
+                                                                            </padding>
+                                                                        </HBox>
+                                                                    </children>
+                                                                </VBox>
+                                                            </children>
+                                                            <padding>
+                                                                <Insets left="10.0" right="10.0" />
+                                                            </padding>
+                                                        </HBox>
+                                                        <JFXTreeTableView fx:id="playingTable" focusTraversable="false" minHeight="220.0" prefHeight="235.0" prefWidth="541.0" style="-fx-background-radius: 0; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.05), 20, 0, 0, 0);" styleClass="table" VBox.vgrow="ALWAYS">
+                                                            <columns>
+                                                                <TreeTableColumn fx:id="edit" maxWidth="2200.0" prefWidth="110.0" text="تعديل" />               
+                                                                <TreeTableColumn fx:id="playingPrice" maxWidth="3500.0" prefWidth="110.0" text="السعر" />  
+                                                                <TreeTableColumn fx:id="S_M" maxWidth="4000.0" minWidth="0.0" prefWidth="110.0" text="S\M" />  
+                                                                <TreeTableColumn fx:id="To" maxWidth="5750.0" prefWidth="107.0" text="الي" />   
+                                                                <TreeTableColumn fx:id="from" maxWidth="5750.0" prefWidth="107.0" text="من" />                                        
+                                                                <TreeTableColumn fx:id="ps" prefWidth="110.0" text="الجهاز" />
+                                                            </columns>
+                                                            <VBox.margin>
+                                                                <Insets />
+                                                            </VBox.margin>
+                                                            <columnResizePolicy>
+                                                                <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                            </columnResizePolicy>
+                                                        </JFXTreeTableView>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </padding>
+                                        </HBox>
+                                    </children>
+                                </AnchorPane>
+                            </center>
+                            <bottom>
+                                <HBox fx:id="footerButtonsContainer" alignment="TOP_CENTER" prefHeight="55.0" spacing="30.0" styleClass="root">
+                                    <children>
+                                        <JFXButton alignment="CENTER" focusTraversable="false" graphicTextGap="15.0" onAction="#closeWindow" prefHeight="40.0" prefWidth="9000.0" ripplerFill="BLACK" style="-fx-background-radius: 15;" styleClass="gray-button" text="إغلاق" textFill="WHITE">
+                                            <font>
+                                                <Font name="System Bold" size="20.0" />
+                                            </font>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                            <graphic>
+                                                <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" size="30" />
+                                            </graphic>
+                                        </JFXButton>
+                                        <JFXButton fx:id="transferBtn" focusTraversable="false" graphicTextGap="15.0" onAction="#transferMethod" prefHeight="40.0" prefWidth="9000.0" style="-fx-background-radius: 15;" styleClass="dark-button" text="تحويل">
+                                            <font>
+                                                <Font name="System Bold" size="20.0" />
+                                            </font>
+                                            <graphic>
+                                                <FontAwesomeIconView glyphName="EXCHANGE" size="30" />
+                                            </graphic>
+                                        </JFXButton>
+                              <HBox prefWidth="9070.0">
+                                 <children>
+                                    <JFXButton fx:id="printButton" alignment="CENTER" focusTraversable="false" graphicTextGap="15.0" onAction="#leaveAndPrint" prefHeight="40.0" prefWidth="600.0" ripplerFill="BLACK" style="-fx-background-radius: 15 0 0 15;" styleClass="confirm-button" text="مع الطباعة" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <graphic>
+                                          <FontAwesomeIconView fill="WHITE" glyphName="PRINT" size="30" />
+                                       </graphic>
+                                    </JFXButton>
+                                              <JFXButton fx:id="leaveButton" alignment="CENTER" focusTraversable="false" graphicTextGap="15.0" onAction="#leaveRoomAction" prefHeight="40.0" prefWidth="600.0" ripplerFill="BLACK" style="-fx-background-radius: 0 15 15 0;" styleClass="confirm-button" text="المغادره" textFill="WHITE">
+                                                  <font>
+                                                      <Font name="System Bold" size="20.0" />
+                                                  </font>
+                                                  <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                  </cursor>
+                                                  <graphic>
+                                                      <FontAwesomeIconView fill="WHITE" glyphName="DOLLAR" size="30" />
+                                                  </graphic>
+                                              </JFXButton>
+                                 </children>
+                              </HBox>
+                                    </children>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
+                                </HBox>
+                            </bottom>
+                        </BorderPane>
+                    </content>
+                </ScrollPane>
+                <AnchorPane fx:id="detailsBox" style="-fx-background-color: -fx-secondary-hover;" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="52.0">
+                    <children>
+                        <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="22.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="20.0">
+                            <children>
+                                <HBox fx:id="customerVboxContainer" alignment="CENTER" spacing="30.0">
+                                    <children>
+                                        <VBox alignment="CENTER" spacing="10.0" style="-fx-border-color: -fx-secondary-text; -fx-border-radius: 10; -fx-background-color: -fx-seondary-lighter; -fx-border-width: 2;">
+                                            <children>
+                                                <Label styleClass="label-secondary" text="الصافي" textFill="WHITE">
+                                                    <font>
+                                                        <Font name="System Bold" size="17.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="finalPrice" styleClass="label-secondary" text="0.0" textFill="WHITE">
+                                                    <font>
+                                                        <Font name="System Bold" size="21.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                                        </VBox>
+                                        <VBox alignment="CENTER" prefHeight="83.0" prefWidth="315.0" spacing="10.0" style="-fx-border-color: -fx-secondary-text; -fx-border-radius: 10; -fx-background-color: -fx-seondary-lighter; -fx-border-width: 2;">
+                                            <children>
+                                    <HBox alignment="CENTER">
+                                       <children>
+                                          <VBox alignment="CENTER" spacing="10.0">
+                                             <children>
+                                                <Label styleClass="label-secondary" text="خصم نسبة (%)" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="17.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="discountPercentage" alignment="CENTER" onKeyReleased="#discountPercentageHandle" promptText="0 %">
+                                                   <font>
+                                                      <Font name="System Bold" size="17.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </VBox>
+                                          <VBox alignment="CENTER" spacing="6.0">
+                                             <children>
+                                                <Separator orientation="VERTICAL" prefHeight="200.0" styleClass="separator-white" />
+                                                <Label alignment="CENTER" minWidth="25.0" styleClass="label-secondary" text="أو" textAlignment="CENTER" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="17.0" />
+                                                   </font>
+                                                </Label>
+                                                <Separator orientation="VERTICAL" prefHeight="200.0" styleClass="separator-white" />
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER" spacing="10.0">
+                                             <children>
+                                                            <Label styleClass="label-secondary" text="خصم قيمة" textFill="WHITE">
+                                                                <font>
+                                                                    <Font name="System Bold" size="17.0" />
+                                                                </font>
+                                                            </Label>
+                                                            <TextField fx:id="DisCountTextF" alignment="CENTER" onKeyReleased="#discountTextAction" promptText="0 ج">
+                                                                <font>
+                                                                    <Font name="System Bold" size="17.0" />
+                                                                </font>
+                                                            </TextField>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                            </children>
+                                        </VBox>
+                                        <VBox alignment="CENTER" spacing="10.0" style="-fx-border-color: -fx-secondary-text; -fx-border-radius: 10; -fx-background-color: -fx-seondary-lighter; -fx-border-width: 2;">
+                                            <children>
+                                                <Label styleClass="label-secondary" text="إجمالي الحساب" textFill="WHITE">
+                                                    <font>
+                                                        <Font name="System Bold" size="17.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="totalPRiceLabel" styleClass="label-secondary" text="0.0" textFill="WHITE">
+                                                    <font>
+                                                        <Font name="System Bold" size="21.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                                        </VBox>
+                                        <VBox fx:id="customerVbox" alignment="CENTER" spacing="10.0" style="-fx-border-color: -fx-secondary-text; -fx-border-radius: 10; -fx-background-color: -fx-seondary-lighter; -fx-border-width: 2;">
+                                            <children>
+                                                <HBox alignment="CENTER" spacing="10.0">
+                                                    <children>
+                                                        <Label styleClass="label-secondary" text="العميل" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="System Bold" size="17.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <FontAwesomeIconView fill="WHITE" glyphName="USER" size="30" />
+                                                    </children>
+                                                </HBox>
+                                                <TextField fx:id="customerNameTextField" alignment="CENTER" editable="false" onMouseClicked="#chooseClientAction" promptText="اضغط للاختيار">
+                                                    <font>
+                                                        <Font name="System Bold" size="17.0" />
+                                                    </font>
+                                                </TextField>
+                                            </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </AnchorPane>
+                <AnchorPane prefHeight="52.0" style="-fx-background-color: -fx-secondary-hover;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <HBox alignment="CENTER" focusTraversable="true" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <padding>
+                                <Insets bottom="5.0" left="10.0" right="10.0" top="7.0" />
+                            </padding>
+                            <children>
+                                <Label fx:id="roomName" alignment="TOP_CENTER" prefHeight="64.0" styleClass="label-secondary" text="Room 1" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                    <font>
+                                        <Font name="Comic Sans MS Bold" size="28.0" />
+                                    </font>
+                                </Label>
+                                <HBox alignment="CENTER" spacing="10.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <MaterialDesignIconView fill="WHITE" glyphName="TIMER" size="33" />
+                                        <Label fx:id="timerLabel" styleClass="label-secondary" text="00:00:00" textFill="WHITE">
+                                            <font>
+                                                <Font name="System Bold" size="25.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                    <padding>
+                                        <Insets right="10.0" />
+                                    </padding>
+                                </HBox>
+                        <JFXButton focusTraversable="false" graphicTextGap="15.0" onAction="#barAction" prefHeight="52.0" prefWidth="140.0" style="-fx-background-radius: 0; -fx-background-color: -fx-seondary-lighter;" styleClass="dark-button" text="تفاصيل">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="ANGLE_DOUBLE_DOWN" size="49" />
+                           </graphic>
+                           <HBox.margin>
+                              <Insets bottom="-5.0" right="-10.0" top="-7.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </JFXButton>
+                            </children>
+                        </HBox>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToHeight="true" fitToWidth="true" focusTraversable="false" onKeyReleased="#ADEVE" styleClass="root" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="settings.devices.DevicesSettingsController">
+   <content>
+      <VBox prefHeight="672.0" prefWidth="932.0" styleClass="root">
+         <children>
+            <HBox alignment="CENTER_RIGHT">
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+               <children>
+                  <JFXButton alignment="CENTER" cancelButton="true" contentDisplay="RIGHT" focusTraversable="false" graphicTextGap="14.0" onAction="#goToSettings" styleClass="back-button" text="رجوع">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <FontAwesomeIconView glyphName="CHEVRON_RIGHT" size="24" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" spacing="30.0">
+               <children>
+                  <JFXTextField fx:id="DNText" labelFloat="true" prefWidth="300.0" promptText="نوع الجهاز" styleClass="text-field-normal" />
+                  <JFXTextField fx:id="SText" labelFloat="true" prefWidth="150.0" promptText="Single" styleClass="text-field-normal" />
+                  <JFXTextField fx:id="MText" labelFloat="true" prefWidth="150.0" promptText="Multi" styleClass="text-field-normal" />
+                  <JFXButton contentDisplay="RIGHT" focusTraversable="false" graphicTextGap="14.0" onAction="#ADDRECORD" prefWidth="150.0" styleClass="light-button" text="إضافة">
+                     <font>
+                        <Font name="System Bold" size="23.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <FontAwesomeIconView glyphName="GAMEPAD" size="29" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+               </padding>
+            </HBox>
+            <JFXTreeTableView fx:id="myTable" focusTraversable="false" minHeight="400.0" styleClass="table" VBox.vgrow="ALWAYS">
+               <columns>
+                  <TreeTableColumn fx:id="Dcol" maxWidth="3000.0" prefWidth="153.0" text="حذف" />
+                  <TreeTableColumn fx:id="Ecol" maxWidth="3000.0" prefWidth="153.0" text="تعديل" />
+                  <TreeTableColumn fx:id="Mcol" prefWidth="155.0" text="Multi" />
+                  <TreeTableColumn fx:id="Scol" prefWidth="155.0" text="Single" />
+                  <TreeTableColumn fx:id="DNcol" prefWidth="250.0" text="نوع الجهاز" />
+               </columns>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <columnResizePolicy>
+                  <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="20.0" />
+               </VBox.margin>
+            </JFXTreeTableView>
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </VBox>
+   </content>
+</ScrollPane>

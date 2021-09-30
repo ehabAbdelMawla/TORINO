@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane onKeyReleased="#keyEv" prefHeight="600.0" prefWidth="800.0" stylesheets="@../../resources/style/base.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="statistics.details.CategoryDetailsController">
+    <children>
+      <ScrollPane fx:id="SP" fitToHeight="true" fitToWidth="true" layoutY="40.0" styleClass="root" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+              <VBox alignment="CENTER" onScroll="#scrollHandler" spacing="10.0" styleClass="root">
+                  <children>
+                      <HBox alignment="CENTER" spacing="20.0">
+                          <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                          </padding>
+                          <children>
+                              <Label fx:id="categName" alignment="CENTER">
+                                  <font>
+                                      <Font name="System Bold" size="30.0" />
+                                  </font>
+                              </Label>
+                          </children>
+                      </HBox>
+                      <HBox alignment="CENTER" spacing="10.0">
+                          <children>
+                              <AnchorPane prefHeight="41.0" prefWidth="301.0">
+                                  <children>
+                                      <TextField fx:id="sTxt" alignment="CENTER" onKeyReleased="#searchEvent" prefHeight="35.0" prefWidth="301.0" promptText="بحث" style="-fx-background-radius: 20;">
+                                          <font>
+                                              <Font size="18.0" />
+                                          </font>
+                                      </TextField>
+                                      <JFXButton contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="10.0" layoutY="5.0" style="-fx-background-color: white;" styleClass="noStyle">
+                                          <graphic>
+                                              <FontAwesomeIconView fill="#949494" glyphName="SEARCH" size="20" />
+                                          </graphic>
+                                      </JFXButton>
+                                  </children>
+                              </AnchorPane>
+                          </children>
+                      </HBox>
+                        <JFXTreeTableView fx:id="myTable" minHeight="430.0" nodeOrientation="LEFT_TO_RIGHT" styleClass="table" VBox.vgrow="ALWAYS">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <columns>
+                                <TreeTableColumn fx:id="percentageFromAll" prefWidth="138.0" text="النسبه من الإجمالي" />
+                                <TreeTableColumn fx:id="percenFromSmall" prefWidth="128.0" text="النسبه من الفئه" />
+                                <TreeTableColumn fx:id="ValCol" maxWidth="3500.0" prefWidth="136.0" text="القيمه" />
+                                <TreeTableColumn fx:id="counCol" maxWidth="3500.0" prefWidth="65.0" text="العدد" />
+                                <TreeTableColumn fx:id="productCol" maxWidth="7000.0" prefWidth="145.0" text="المنتج" />
+                            </columns>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                     <columnResizePolicy>
+                        <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                        </JFXTreeTableView>
+                      <HBox alignment="CENTER">
+                          <children>
+                              <Label fx:id="valLabel" alignment="CENTER_RIGHT">
+                                  <font>
+                                      <Font name="System Bold" size="35.0" />
+                                  </font>
+                              </Label>
+                              <Label text="الإجمالي :">
+                                  <font>
+                                      <Font size="35.0" />
+                                  </font>
+                              </Label>
+                          </children>
+                          <padding>
+                              <Insets left="40.0" />
+                          </padding>
+                      </HBox>
+                      <PieChart fx:id="pieChartOfProducts" minHeight="700.0" VBox.vgrow="ALWAYS" />
+                  </children>
+              </VBox>
+         </content>
+      </ScrollPane>
+    </children>
+</AnchorPane>

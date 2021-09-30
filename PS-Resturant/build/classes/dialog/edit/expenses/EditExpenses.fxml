@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" onKeyReleased="#KEVENT" style="-fx-border-color: -fx-secondary; -fx-border-width: 5;" stylesheets="@../../../resources/style/base.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dialog.edit.expenses.EditExpensesController">
+    <children>
+        <Pane layoutX="-5.0" layoutY="-1.0" onMouseDragged="#RootMouseDragged" onMousePressed="#RootMousePressed" style="-fx-background-color: -fx-secondary;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <JFXButton focusTraversable="false" layoutX="513.0" onAction="#closeWindow" prefHeight="17.0" prefWidth="34.0" text="X" textFill="WHITE">
+                    <font>
+                        <Font name="Comic Sans MS Bold" size="15.0" />
+                    </font>
+                </JFXButton>
+            </children>
+        </Pane>
+        <VBox alignment="CENTER" layoutX="10.0" layoutY="56.0" prefWidth="550.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
+            <children>
+                <HBox alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="52.0" prefWidth="582.0" spacing="30.0">
+                    <children>
+                          <JFXTextField fx:id="nameOfExpensessTF" labelFloat="true" nodeOrientation="RIGHT_TO_LEFT" promptText="الغرض" style="-fx-font-weight: bold;" styleClass="text-field-normal" HBox.hgrow="ALWAYS" />
+                          <JFXTextField fx:id="moneyOfExpenssess" labelFloat="true" nodeOrientation="RIGHT_TO_LEFT" promptText="التكلفة" style="-fx-font-weight: bold;" styleClass="text-field-normal" HBox.hgrow="ALWAYS" />
+                    </children>
+                </HBox>
+            <VBox alignment="CENTER_RIGHT">
+               <children>
+                        <TextField fx:id="reason" alignment="CENTER_RIGHT" promptText="سبب التعديل" styleClass="text-field-normal" VBox.vgrow="ALWAYS" />
+                    <Label fx:id="error" style="-fx-text-fill: red;" text="يجب ادخال سبب التعديل" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+                <HBox alignment="CENTER" spacing="60.0">
+                    <children>
+                        <JFXButton focusTraversable="true" graphicTextGap="15.0" onAction="#closeWindow" prefWidth="9000.0" ripplerFill="BLACK" styleClass="back-button" text="الغاء">
+                            <font>
+                                <Font name="System Bold" size="21.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <graphic>
+                                <FontAwesomeIconView glyphName="CLOSE" size="27" />
+                            </graphic>
+                        </JFXButton>
+                        <JFXButton focusTraversable="true" graphicTextGap="15.0" onAction="#editExpensesss" prefWidth="9000.0" styleClass="dark-button" text="تعديل">
+                            <font>
+                                <Font name="System Bold" size="21.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <graphic>
+                                <FontAwesomeIconView glyphName="EDIT" size="27" />
+                            </graphic>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                        </JFXButton>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin>
+               <padding>
+                  <Insets left="20.0" right="20.0" top="-30.0" />
+               </padding>
+                </HBox>
+            </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="35.0" />
+         </padding>
+        </VBox>
+    </children>
+</AnchorPane>

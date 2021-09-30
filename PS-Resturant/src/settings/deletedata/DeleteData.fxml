@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToHeight="true" fitToWidth="true" onKeyReleased="#KEv" stylesheets="@../../resources/style/base.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="settings.deletedata.DeleteDataController">
+    <content>
+        <VBox alignment="CENTER" spacing="20.0" styleClass="root">
+            <children>
+            <HBox alignment="CENTER_RIGHT">
+               <children>
+                  <JFXButton alignment="CENTER" cancelButton="true" contentDisplay="RIGHT" focusTraversable="false" graphicTextGap="14.0" onAction="#goToSettings" styleClass="back-button" text="رجوع">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <FontAwesomeIconView glyphName="CHEVRON_RIGHT" size="24" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <VBox alignment="CENTER" fillWidth="false" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox styleClass="normal-pane">
+                     <children>
+                        <HBox alignment="CENTER">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <children>
+                              <JFXButton fx:id="exportBackupTab" focusTraversable="false" graphicTextGap="20.0" maxWidth="1.7976931348623157E308" onAction="#goToExportBackup" prefWidth="300.0" text="تحميل نسخة إحتياطية" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="System Bold" size="22.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="DOWNLOAD" size="35" />
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="deleteDataTab" focusTraversable="false" graphicTextGap="20.0" layoutX="347.0" layoutY="20.0" maxWidth="1.7976931348623157E308" onAction="#goToDeleteData" prefWidth="300.0" styleClass="dark-button" text="حذف البيانات" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="System Bold" size="22.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="TRASH" size="35" />
+                                 </graphic>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                        <Separator prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" top="10.0" />
+                           </VBox.margin>
+                        </Separator>
+                        <AnchorPane>
+                           <children>
+                              <VBox fx:id="deleteDataBox" alignment="CENTER" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                        <HBox alignment="CENTER" spacing="70.0">
+                                            <children>
+                                                <VBox alignment="CENTER" spacing="30.0">
+                                                    <children>
+                                                        <VBox alignment="CENTER_RIGHT" fillWidth="false">
+                                                            <children>
+                                                                <Label text="أختر البيانات التى تود حذفها :">
+                                                                    <font>
+                                                                        <Font name="System Bold" size="26.0" />
+                                                                    </font>
+                                                                </Label>
+                                                                <Line endX="312.0" />
+                                                            </children>
+                                                        </VBox>
+                                                        <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                                                            <children>
+                                                                <JFXCheckBox fx:id="archBox" focusTraversable="false" prefHeight="60.0" prefWidth="232.0" text="بيانات الارشيف ">
+                                                                    <font>
+                                                                        <Font name="System Bold" size="26.0" />
+                                                                    </font>
+                                                                </JFXCheckBox>
+                                                                <JFXCheckBox fx:id="StoreBox" focusTraversable="false" prefHeight="63.0" prefWidth="225.0" text="بـيـانـات المـخـزن" textAlignment="RIGHT">
+                                                                    <font>
+                                                                        <Font name="System Bold" size="26.0" />
+                                                                    </font>
+                                                                </JFXCheckBox>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                </VBox>
+                                                <Line endX="208.45506286621094" opacity="0.36" startX="208.45501708984375" startY="201.5999755859375" />
+                                                <VBox alignment="CENTER" spacing="30.0">
+                                                    <children>
+                                                        <VBox alignment="CENTER_RIGHT" fillWidth="false">
+                                                            <children>
+                                                                <Label text="أختر الفترة التى تود حذفها :">
+                                                                    <font>
+                                                                        <Font name="System Bold" size="26.0" />
+                                                                    </font>
+                                                                </Label>
+                                                                <Line endX="292.0" />
+                                                            </children>
+                                                        </VBox>
+                                                        <GridPane alignment="CENTER" hgap="10.0" vgap="10.0" VBox.vgrow="ALWAYS">
+                                                            <columnConstraints>
+                                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+                                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+                                                            </columnConstraints>
+                                                            <rowConstraints>
+                                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                            </rowConstraints>
+                                                            <children>
+                                                                <Label text="الي " GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                                    <font>
+                                                                        <Font name="Arial" size="33.0" />
+                                                                    </font>
+                                                                </Label>
+                                                                <Label text="من" GridPane.columnIndex="1">
+                                                                    <font>
+                                                                        <Font name="Arial" size="33.0" />
+                                                                    </font>
+                                                                </Label>
+                                                                <JFXDatePicker fx:id="fromDate" focusTraversable="false" styleClass="jfx-time-picker" />
+                                                                <JFXDatePicker fx:id="TODate" focusTraversable="false" styleClass="jfx-time-picker" GridPane.rowIndex="1" />
+                                                            </children>
+                                                        </GridPane>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER" spacing="70.0">
+                                            <children>
+                                                <JFXButton focusTraversable="false" onAction="#DeleteAllData" styleClass="close-button" text="إعادة تهيئة النظام" textFill="WHITE">
+                                                    <font>
+                                                        <Font name="System Bold" size="29.0" />
+                                                    </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                                </JFXButton>
+                                                <JFXButton focusTraversable="false" onAction="#DeleteAction" styleClass="dark-button" text="تأكيد حذف البيانات" textFill="WHITE">
+                                                    <font>
+                                                        <Font name="System Bold" size="29.0" />
+                                                    </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                                </JFXButton>
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="10.0" top="10.0" />
+                                            </padding>
+                                        </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="30.0" right="30.0" top="30.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox fx:id="exportBackupBox" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <VBox alignment="CENTER" spacing="20.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <JFXButton focusTraversable="false" graphicTextGap="14.0" onAction="#chooseFolder" style="-fx-background-radius: 15;" styleClass="light-button" text="أختر مكان حفظ قاعدة البيانات">
+                                             <font>
+                                                <Font name="System Bold" size="17.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets bottom="8.0" left="15.0" right="15.0" top="8.0" />
+                                             </padding>
+                                             <graphic>
+                                                <FontAwesomeIconView fill="WHITE" glyphName="FOLDER_OPEN" size="25" />
+                                             </graphic>
+                                          </JFXButton>
+                                          <HBox alignment="CENTER" spacing="10.0">
+                                             <children>
+                                                <Label fx:id="statusText" text="لم يتم اختيار مكان للحفظ بعد">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                                <FontAwesomeIconView fx:id="statusIcon" fill="RED" glyphName="CLOSE" size="25" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <JFXButton fx:id="exportBackupButton" focusTraversable="false" graphicTextGap="14.0" onAction="#exportBackup" style="-fx-background-radius: 15;" styleClass="confirm-button" text="تصدير النسخة الإحتياطية">
+                                       <font>
+                                          <Font name="System Bold" size="17.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets bottom="8.0" left="15.0" right="15.0" top="8.0" />
+                                       </padding>
+                                       <graphic>
+                                          <FontAwesomeIconView fill="WHITE" glyphName="DOWNLOAD" size="25" />
+                                       </graphic>
+                                    </JFXButton>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </VBox>
+    </content>
+</ScrollPane>

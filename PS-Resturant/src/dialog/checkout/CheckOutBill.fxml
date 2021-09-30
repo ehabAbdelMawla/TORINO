@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane onKeyReleased="#keyEv" prefHeight="416.0" prefWidth="436.0" style="-fx-background-color: transparent;" stylesheets="@../../resources/style/base.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dialog.checkout.CheckOutBillController">
+    <children>
+        <GridPane fx:id="StackPaneContainer" alignment="CENTER" layoutX="9.0" layoutY="9.0" onMouseDragged="#RootMouseDragged" onMousePressed="#RootMousePressed" prefHeight="451.0" prefWidth="500.0" style="-fx-background-color: white; -fx-border-color: -fx-secondary; -fx-border-radius: 30; -fx-background-radius: 30; -fx-border-width: 3;" vgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="210.0" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="210.0" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <StackPane style="-fx-border-color: -fx-secondary; -fx-border-width: 1;" GridPane.columnIndex="1">
+                    <children>
+                        <Label text="الاجمالي: ">
+                            <font>
+                                <Font name="System Bold" size="22.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </StackPane>
+                <StackPane style="-fx-border-color: -fx-secondary; -fx-border-width: 1 0 1 1;">
+                    <children>
+                        <Label fx:id="totalOrderLabel" text="0">
+                            <font>
+                                <Font name="System Bold" size="22.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </StackPane>
+                <StackPane style="-fx-border-color: -fx-secondary; -fx-border-width: 1;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <children>
+                        <Label text="الخصم : ">
+                            <font>
+                                <Font name="System Bold" size="22.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </StackPane>
+                <StackPane maxHeight="64.0" style="-fx-border-color: -fx-secondary; -fx-border-width: 1 0 1 1;" GridPane.rowIndex="3">
+                    <children>
+                        <TextField fx:id="PaidOrderTexfield" alignment="CENTER" onKeyReleased="#payed_Handler" prefHeight="64.0" prefWidth="254.0" promptText="0.0" style="-fx-background-color: white;">
+                            <font>
+                                <Font name="System Bold" size="22.0" />
+                            </font>
+                        </TextField>
+                    </children>
+                </StackPane>
+                <StackPane maxHeight="64.0" style="-fx-border-color: -fx-secondary; -fx-border-width: 1 0 1 1;" GridPane.rowIndex="1">
+                    <children>
+                        <TextField fx:id="discountTxt" alignment="CENTER" onKeyReleased="#discount_Handler" prefHeight="64.0" prefWidth="254.0" promptText="0.0" style="-fx-background-color: white;">
+                            <font>
+                                <Font name="System Bold" size="22.0" />
+                            </font>
+                        </TextField>
+                    </children>
+                </StackPane>
+                <StackPane style="-fx-border-color: -fx-secondary; -fx-border-width: 1;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <children>
+                        <Label text="المطلوب">
+                            <font>
+                                <Font name="System Bold" size="22.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </StackPane>
+                <StackPane style="-fx-border-color: -fx-secondary; -fx-border-width: 1 0 1 1;" GridPane.rowIndex="2">
+                    <children>
+                        <Label fx:id="totalOrderLabelAfterDis" text="0">
+                            <font>
+                                <Font name="System Bold" size="22.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </StackPane>
+                <StackPane style="-fx-border-color: -fx-secondary; -fx-border-width: 1;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                    <children>
+                        <Label text="المدفوع: ">
+                            <font>
+                                <Font name="System Bold" size="22.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </StackPane>
+                <StackPane fx:id="deptLabel" style="-fx-border-color: -fx-secondary; -fx-border-width: 1;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                    <children>
+                        <Label fx:id="remainTName" text="الآجل:">
+                            <font>
+                                <Font name="System Bold" size="22.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </StackPane>
+                <StackPane fx:id="deptLabelValue" style="-fx-border-color: -fx-secondary; -fx-border-width: 1 0 1 1;" GridPane.rowIndex="4">
+                    <children>
+                        <Label fx:id="remainOrderLabel" text="0">
+                            <font>
+                                <Font name="System Bold" size="22.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </StackPane>
+                <HBox fx:id="buttonsBox" alignment="CENTER" spacing="20.0" GridPane.columnSpan="2" GridPane.rowIndex="5">
+                    <children>
+                        <JFXButton fx:id="discardBTN" cancelButton="true" focusTraversable="false" graphicTextGap="15.0" onAction="#discardAction" prefHeight="44.0" prefWidth="139.0" styleClass="close-button" text="إلغاء">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="CLOSE" size="25" style="-fx-fill: -fx-secondary-text;" />
+                            </graphic>
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                        </JFXButton>
+                        <JFXButton fx:id="confirmBTN" focusTraversable="false" graphicTextGap="15.0" onAction="#confirmAction" prefHeight="44.0" prefWidth="139.0" styleClass="dark-button" text="تأكيد">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="CHECK" size="25" style="-fx-fill: -fx-secondary-text;" />
+                            </graphic>
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                        </JFXButton>
+                        <JFXCheckBox fx:id="printCheckBox" selected="true" text="طباعة">
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                        </JFXCheckBox>
+                    </children>
+                </HBox>
+            </children>
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+            <effect>
+                <DropShadow />
+            </effect>
+        </GridPane>
+    </children>
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+</AnchorPane>

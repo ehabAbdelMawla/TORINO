@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fx:id="sp" fitToHeight="true" fitToWidth="true" prefWidth="1030.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="settings.SettingsController">
+    <content>
+        <FlowPane fx:id="buttonsContainer" alignment="CENTER" columnHalignment="CENTER" hgap="70.0" onScroll="#scrollHandler" prefWidth="500.0" styleClass="root" vgap="70.0">
+            <children>
+                <JFXButton fx:id="shopDataButton" contentDisplay="TOP" focusTraversable="false" onAction="#goToShopData" prefHeight="244.0" prefWidth="244.0" styleClass="button-settings" text="بيانات الفرع">
+                    <font>
+                        <Font name="System Bold" size="39.0" />
+                    </font>
+                    <effect>
+                        <DropShadow radius="31.1825" spread="0.13" width="105.73" />
+                    </effect>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <graphic>
+                        <FontAwesomeIconView fill="#1e3953" glyphName="HOME" size="100" />
+                    </graphic>
+                </JFXButton>
+                <JFXButton contentDisplay="TOP" focusTraversable="false" onAction="#goToEmployeesSettings" prefHeight="244.0" prefWidth="244.0" styleClass="button-settings" text="موظفين">
+                    <font>
+                        <Font name="System Bold" size="39.0" />
+                    </font>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <graphic>
+                        <FontAwesomeIconView fill="#1e3953" glyphName="USERS" size="100" />
+                    </graphic>
+                </JFXButton>
+                <JFXButton fx:id="devicesButton" contentDisplay="TOP" focusTraversable="false" onAction="#goToDevicesSettings" prefHeight="244.0" prefWidth="244.0" styleClass="button-settings" text="اجهزه">
+                    <font>
+                        <Font name="System Bold" size="39.0" />
+                    </font>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <graphic>
+                        <FontAwesomeIconView fill="#1e3953" glyphName="TV" size="100" />
+                    </graphic>
+                </JFXButton>
+                <JFXButton fx:id="roomNamesButton" contentDisplay="TOP" focusTraversable="false" onAction="#goToPlayingRoomsSettings" prefHeight="244.0" prefWidth="244.0" styleClass="button-settings" text="حجرات اللعب" textAlignment="CENTER" wrapText="true">
+                    <font>
+                        <Font name="System Bold" size="32.0" />
+                    </font>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <graphic>
+                        <MaterialDesignIconView fill="#1e3953" glyphName="GAMEPAD_VARIANT" size="100" />
+                    </graphic>
+                </JFXButton>
+                <JFXButton contentDisplay="TOP" focusTraversable="false" onAction="#goToCafeSettings" prefHeight="244.0" prefWidth="244.0" styleClass="button-settings" text="المنتجات">
+                    <font>
+                        <Font name="System Bold" size="39.0" />
+                    </font>
+                    <effect>
+                        <DropShadow radius="31.1825" spread="0.13" width="105.73" />
+                    </effect>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <graphic>
+                        <FontAwesomeIconView fill="#1e3953" glyphName="COFFEE" size="100" />
+                    </graphic>
+                </JFXButton>
+                <JFXButton fx:id="hallTablesButton" contentDisplay="TOP" focusTraversable="false" onAction="#goToRestaurantHallSettings" prefHeight="244.0" prefWidth="244.0" styleClass="button-settings" text="صالة المطعم" textAlignment="CENTER" wrapText="true">
+                    <font>
+                        <Font name="System Bold" size="32.0" />
+                    </font>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <graphic>
+                        <MaterialDesignIconView fill="#1e3953" glyphName="FOOD" size="100" />
+                    </graphic>
+                </JFXButton>
+                <JFXButton fx:id="taxAndServicesButton" contentDisplay="TOP" focusTraversable="false" onAction="#goToTaxSettings" prefHeight="244.0" prefWidth="244.0" styleClass="button-settings" text="الخدمة و الضريبة" textAlignment="CENTER" wrapText="true">
+                    <font>
+                        <Font name="System Bold" size="32.0" />
+                    </font>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <graphic>
+                        <FontAwesomeIconView fill="#1e3953" glyphName="DOLLAR" size="100" />
+                    </graphic>
+                </JFXButton>
+                <JFXButton fx:id="promotionsButton" contentDisplay="TOP" focusTraversable="false" onAction="#goToPromotion" prefHeight="244.0" prefWidth="244.0" styleClass="button-settings" text="العروض" textAlignment="CENTER" wrapText="true">
+                    <font>
+                        <Font name="System Bold" size="39.0" />
+                    </font>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <graphic>
+                        <FontAwesomeIconView fill="#1e3953" glyphName="BULLHORN" size="100" />
+                    </graphic>
+                </JFXButton>
+                <JFXButton fx:id="el3ohdaButton" contentDisplay="TOP" focusTraversable="false" onAction="#goToImprestSettings" prefHeight="244.0" prefWidth="244.0" styleClass="button-settings" text="العهده">
+                    <font>
+                        <Font name="System Bold" size="39.0" />
+                    </font>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <graphic>
+                        <FontAwesomeIconView fill="#1e3953" glyphName="MONEY" size="100" />
+                    </graphic>
+                </JFXButton>
+            <JFXButton fx:id="otherSettingsButton" contentDisplay="TOP" focusTraversable="false" layoutX="402.0" layoutY="1971.0" onAction="#goToOtherSettings" prefHeight="244.0" prefWidth="244.0" styleClass="button-settings" text="أخرى">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <FontAwesomeIconView fill="#1e3953" glyphName="GEAR" size="100" />
+               </graphic>
+            </JFXButton>
+                <JFXButton fx:id="DataSettings" contentDisplay="TOP" focusTraversable="false" onAction="#goToDataSettings" prefHeight="244.0" prefWidth="244.0" styleClass="button-settings" text="إدارة البيانات">
+                    <font>
+                        <Font name="System Bold" size="32.0" />
+                    </font>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <graphic>
+                        <FontAwesomeIconView fill="#1e3953" glyphName="TRASH" size="100" />
+                    </graphic>
+                </JFXButton>
+            </children>
+            <padding>
+                <Insets bottom="30.0" left="30.0" right="30.0" top="77.0" />
+            </padding>
+        </FlowPane>
+    </content>
+</ScrollPane>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.14.0.final using JasperReports Library version 6.14.0-2ab0d8625be255bf609c78e1181801213e51db8f  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EndSheftReport80" pageWidth="226" pageHeight="297" columnWidth="206" leftMargin="10" rightMargin="10" topMargin="10" bottomMargin="10" isFloatColumnFooter="true" isIgnorePagination="true" uuid="539f3bc0-d386-4201-b332-2663c9aab4bd">
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<parameter name="image" class="java.awt.Image"/>
+	<parameter name="shopName" class="java.lang.String"/>
+	<parameter name="logoVisability" class="java.lang.Boolean"/>
+	<parameter name="playstation" class="java.lang.Boolean"/>
+	<parameter name="userName" class="java.lang.String"/>
+	<parameter name="psIncome" class="java.lang.Double"/>
+	<parameter name="cafeIncome" class="java.lang.Double"/>
+	<parameter name="deptIncome" class="java.lang.Double"/>
+	<parameter name="totalIncome" class="java.lang.Double"/>
+	<parameter name="AccessCustomerDataPage" class="java.lang.Boolean"/>
+	<parameter name="expensess" class="java.lang.Double"/>
+	<parameter name="currency" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<detail>
+		<band height="277">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<image scaleImage="FillFrame" onErrorType="Blank">
+				<reportElement x="48" y="0" width="110" height="60" isRemoveLineWhenBlank="true" uuid="71b5e770-5ff8-421e-803b-31cdab2a511a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$P{logoVisability}]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{image}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="0" y="61" width="206" height="20" isRemoveLineWhenBlank="true" uuid="b0d01d7e-6cc8-4b6f-a122-7f9e6d5492e9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[!$P{logoVisability}]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{shopName}]]></textFieldExpression>
+			</textField>
+			<textField pattern="hh:mm a">
+				<reportElement positionType="Float" x="0" y="105" width="206" height="20" uuid="dd12c7ff-17ee-4014-bf94-e9accdc0ec3a"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement positionType="Float" x="0" y="82" width="206" height="20" uuid="e0b8ad94-8a54-41cd-b16c-4deb7a51ee58">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="0" y="128" width="206" height="21" uuid="1021cefe-60fe-48a1-bb75-24e328846312">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{userName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="-1" y="152" width="103" height="25" isRemoveLineWhenBlank="true" uuid="9dd80cd5-a0cf-4c13-9d07-d0421793a7ee">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$P{playstation}]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="5" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{psIncome}+$P{currency}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="102" y="152" width="103" height="25" isRemoveLineWhenBlank="true" backcolor="#D6D6D6" uuid="6de2a1b8-147b-4c49-941b-8b62f67b617c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$P{playstation}]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="6" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[دخل اللعب]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="102" y="177" width="103" height="25" isRemoveLineWhenBlank="true" backcolor="#D6D6D6" uuid="ce023612-15f3-4877-a99e-ae5ecbd42986"/>
+				<box topPadding="6" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[دخل المطعم]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="102" y="202" width="103" height="25" isRemoveLineWhenBlank="true" backcolor="#D6D6D6" uuid="9ebaaf23-a973-4df4-a4d9-ce12786c4a15">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$P{AccessCustomerDataPage}]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="6" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[دخل الاجل]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="102" y="227" width="103" height="25" isRemoveLineWhenBlank="true" backcolor="#D6D6D6" uuid="af3aa142-0564-4a78-ab8d-48319db2efaa">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="6" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[الاجمالي]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="-1" y="227" width="103" height="25" isRemoveLineWhenBlank="true" uuid="96f43b5b-60aa-4f4b-aac3-7831140d1b52"/>
+				<box topPadding="5" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{totalIncome}+$P{currency}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="-1" y="202" width="103" height="25" isRemoveLineWhenBlank="true" uuid="ed43cefb-596d-4212-a235-6b3bf3e626f2">
+					<printWhenExpression><![CDATA[$P{AccessCustomerDataPage}]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="5" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{deptIncome}+$P{currency}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="-1" y="177" width="103" height="25" isRemoveLineWhenBlank="true" uuid="d50aab84-3f72-4dad-aa44-debe2399ba4b">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="5" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cafeIncome}+$P{currency}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="102" y="252" width="103" height="25" isRemoveLineWhenBlank="true" backcolor="#D6D6D6" uuid="d46fe7a4-47d6-4db1-8412-e8ce76db514f">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="6" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[المصاريف]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="-1" y="252" width="103" height="25" isRemoveLineWhenBlank="true" uuid="143b9080-cdc1-494c-8eaf-cd5a8a00c14f"/>
+				<box topPadding="5" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{expensess}+$P{currency}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

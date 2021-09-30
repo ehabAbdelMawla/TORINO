@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane onKeyReleased="#kEve" onMouseDragged="#RootMouseDragged" onMousePressed="#RootMousePressed" prefWidth="579.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dialog.admin_validation.AdminValidationController">
+    <children>
+        <VBox alignment="CENTER" layoutX="8.0" layoutY="10.0" prefWidth="559.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <children>
+                <HBox alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" spacing="30.0" translateY="-14.0">
+                    <children>
+                        <Label text="أدخل كلمة السر :">
+                            <font>
+                                <Font name="System Bold" size="19.0" />
+                            </font>
+                        </Label>
+                        <AnchorPane prefHeight="52.0" prefWidth="300.0">
+                            <children>
+                                <JFXPasswordField fx:id="PasswordField" focusColor="BLACK" prefHeight="50.0" prefWidth="300.0" scaleShape="false" style="-fx-prompt-text-fill: #000000; -fx-text-inner-color: #000000;" unFocusColor="BLACK">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </JFXPasswordField>
+                                <JFXTextField fx:id="PasswordTextField" focusColor="BLACK" focusTraversable="false" prefHeight="50.0" prefWidth="300.0" scaleShape="false" style="-fx-prompt-text-fill: #000000; -fx-text-inner-color: #000000;" unFocusColor="BLACK">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="254.0" onMousePressed="#eyeBTN" onMouseReleased="#eyeBTN2" prefHeight="52.0" prefWidth="47.0">
+                                    <graphic>
+                                        <FontAwesomeIconView glyphName="EYE" size="25" />
+                                    </graphic>
+                                </JFXButton>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                    <padding>
+                        <Insets left="20.0" />
+                    </padding>
+                </HBox>
+              <Label fx:id="erorrText" alignment="CENTER" text="كلمة السر غير صحيحه " textFill="#ff2929">
+                  <font>
+                      <Font name="System Bold" size="25.0" />
+                  </font>
+               <VBox.margin>
+                  <Insets top="-9.0" />
+               </VBox.margin>
+              </Label>
+                <HBox alignment="CENTER" prefHeight="40.0" prefWidth="499.0" spacing="72.0">
+                    <children>
+                        <JFXButton focusTraversable="false" onAction="#closeAction" prefWidth="160.0" style="-fx-background-color: #141e2a; -fx-background-radius: 20;" text="إلغاء" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font></JFXButton>
+                        <JFXButton focusTraversable="false" onAction="#validationAction" prefWidth="160.0" style="-fx-background-color: #2ca462; -fx-background-radius: 20;" text="الدخول" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="19.0" />
+                            </font>
+                        </JFXButton>
+                    </children>
+                </HBox>
+            </children>
+            <padding>
+                <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+            </padding>
+        </VBox>
+    </children>
+</AnchorPane>

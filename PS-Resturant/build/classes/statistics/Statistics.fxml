@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToHeight="true" fitToWidth="true" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="statistics.StatisticsController">
+    <content>
+        <VBox alignment="CENTER" styleClass="root">
+            <children>
+                <HBox alignment="CENTER" spacing="20.0">
+                    <children>
+                        <JFXButton alignment="CENTER" focusTraversable="false" graphicTextGap="15.0" onAction="#CreatePDF" prefWidth="9000.0" styleClass="light-button" text="عرض التقرير" textAlignment="CENTER" textFill="#1e2b3c">
+                            <font>
+                                <Font name="System Bold" size="23.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <graphic>
+                                <FontAwesomeIconView fill="#1e2b3c" glyphName="FILE" size="35" />
+                            </graphic>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                        </JFXButton>
+                        <JFXButton alignment="CENTER" focusTraversable="false" graphicTextGap="15.0" onAction="#ShowAllAction" prefWidth="9000.0" styleClass="light-button" text="عرض الكل">
+                            <font>
+                                <Font name="System Bold" size="23.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <graphic>
+                                <FontAwesomeIconView fill="#1e2b3c" glyphName="TH_LIST" size="35" />
+                            </graphic>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                        </JFXButton>
+                        <JFXButton alignment="CENTER" focusTraversable="false" graphicTextGap="15.0" onAction="#goToSpacificTime" prefWidth="9000.0" styleClass="dark-button" text="فترة محددة">
+                            <font>
+                                <Font name="System Bold" size="23.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <graphic>
+                                <FontAwesomeIconView fill="#1d2b3b" glyphName="CALENDAR" size="35" />
+                            </graphic>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                        </JFXButton>
+                    </children>
+               <padding>
+                  <Insets bottom="10.0" left="30.0" right="30.0" />
+               </padding>
+                </HBox>
+                <HBox alignment="CENTER" fillHeight="false" spacing="10.0">
+                    <children>
+                      <HBox alignment="CENTER_LEFT" spacing="10.0" HBox.hgrow="ALWAYS">
+                          <children>
+                              <Label fx:id="totalLabel" alignment="CENTER_RIGHT">
+                                  <font>
+                                      <Font name="System Bold" size="30.0" />
+                                  </font>
+                              </Label>
+                              <Label text="الإجمالي :">
+                                  <font>
+                                      <Font size="25.0" />
+                                  </font>
+                              </Label>
+                          </children>
+                      </HBox>
+                        <AnchorPane HBox.hgrow="ALWAYS">
+                            <children>
+                                <TextField fx:id="sTxt" alignment="CENTER" focusTraversable="false" onKeyReleased="#searchEvent" promptText="بحث" styleClass="text-field-search" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </TextField>
+                        <FontAwesomeIconView fill="#949494" glyphName="SEARCH" size="20" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                            </children>
+                        </AnchorPane>
+                    </children>
+               <padding>
+                  <Insets left="30.0" right="30.0" />
+               </padding>
+                </HBox>
+            <AnchorPane VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+               <children>
+                        <AreaChart fx:id="LineChartOdCateg" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <xAxis>
+                                <CategoryAxis side="BOTTOM" fx:id="xAx" />
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis fx:id="YAx" side="LEFT" />
+                            </yAxis>
+                        </AreaChart>
+                        <PieChart fx:id="piChartOfCateg" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                      <JFXTreeTableView fx:id="myTable" focusTraversable="false" layoutX="20.0" layoutY="20.0" styleClass="table" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                              <TreeTableColumn fx:id="perCol" prefWidth="281.0" text="النسبة المئوية" />
+                              <TreeTableColumn fx:id="valCol" prefWidth="281.0" text="القيمه" />
+                              <TreeTableColumn fx:id="categCol" prefWidth="281.0" text="الفئه" />
+                          </columns>
+                          <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                          </padding>
+                          <columnResizePolicy>
+                              <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                          </columnResizePolicy>
+                      </JFXTreeTableView>
+               </children>
+            </AnchorPane>
+            <HBox alignment="CENTER">
+               <children>
+                  <HBox styleClass="normal-pane">
+                     <padding>
+                        <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                     </padding>
+                     <children>
+                        <JFXButton fx:id="pieChartBTN" alignment="CENTER" focusTraversable="false" graphicTextGap="15.0" onAction="#goToPieChart" prefWidth="9000.0" text="مخطط دائري">
+                           <font>
+                              <Font name="System Bold" size="23.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <padding>
+                              <Insets bottom="10.0" top="10.0" />
+                           </padding>
+                           <graphic>
+                              <MaterialDesignIconView glyphName="CHART_PIE" size="35" />
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="lineChartBTN" alignment="CENTER" focusTraversable="false" graphicTextGap="15.0" onAction="#goToLineChart" prefWidth="9000.0" text="الرسم البياني">
+                           <font>
+                              <Font name="System Bold" size="23.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <graphic>
+                              <FontAwesomeIconView fill="#1d2b3b" glyphName="LINE_CHART" size="35" />
+                           </graphic>
+                           <padding>
+                              <Insets bottom="10.0" top="10.0" />
+                           </padding>
+                        </JFXButton>
+                        <JFXButton fx:id="tableBTN" alignment="CENTER" focusTraversable="false" graphicTextGap="15.0" onAction="#goToTable" prefWidth="9000.0" styleClass="dark-button" text="جدول البيانات">
+                           <font>
+                              <Font name="System Bold" size="23.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <graphic>
+                              <FontAwesomeIconView fill="#1d2b3b" glyphName="TABLE" size="35" />
+                           </graphic>
+                           <padding>
+                              <Insets bottom="10.0" top="10.0" />
+                           </padding>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </padding>
+            </HBox>
+            </children>
+            <padding>
+                <Insets top="37.0" />
+            </padding>
+        </VBox>
+    </content>
+</ScrollPane>

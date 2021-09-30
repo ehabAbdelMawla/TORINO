@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToHeight="true" fitToWidth="true" onKeyReleased="#keyActioN" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="archive.expense.ExpenseArchController">
+   <content>
+      <VBox alignment="CENTER" spacing="15.0">
+         <children>
+            <HBox alignment="TOP_RIGHT" nodeOrientation="LEFT_TO_RIGHT">
+               <children>
+                  <JFXButton alignment="CENTER" cancelButton="true" contentDisplay="RIGHT" focusTraversable="false" graphicTextGap="14.0" onAction="#goToArchive" styleClass="back-button" text="رجوع">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <FontAwesomeIconView glyphName="CHEVRON_RIGHT" size="24" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER" spacing="20.0">
+               <children>
+                  <JFXButton alignment="CENTER" focusTraversable="false" graphicTextGap="15.0" onAction="#ShowAllAction" prefWidth="9000.0" styleClass="light-button" text="عرض الكل">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <FontAwesomeIconView fill="#1e2b3c" glyphName="TH_LIST" size="35" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="CENTER" focusTraversable="false" graphicTextGap="15.0" onAction="#goToSpacificTime" prefWidth="9000.0" styleClass="dark-button" text="فترة محددة">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <FontAwesomeIconView fill="#1d2b3b" glyphName="CALENDAR" size="35" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+               <padding>
+                  <Insets left="110.0" right="110.0" />
+               </padding>
+            </HBox>
+            <AnchorPane>
+               <children>
+                  <TextField fx:id="searchTxt" alignment="CENTER" focusTraversable="false" onKeyReleased="#SearchAvtiom" promptText="بحث" styleClass="text-field-search" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <FontAwesomeIconView fill="#949494" glyphName="SEARCH" size="20" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" />
+               </children>
+               <padding>
+                  <Insets left="110.0" right="110.0" />
+               </padding>
+            </AnchorPane>
+            <JFXTreeTableView fx:id="myTable" focusTraversable="false" minHeight="400.0" nodeOrientation="LEFT_TO_RIGHT" styleClass="table" VBox.vgrow="ALWAYS">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <columns>
+                  <TreeTableColumn fx:id="priceCol" prefWidth="215.0" text="التكلقة" />
+                  <TreeTableColumn fx:id="needCol" prefWidth="215.0" text="الغرض" />
+                  <TreeTableColumn fx:id="UsCol" prefWidth="215.0" text="المستحدم" />
+                  <TreeTableColumn fx:id="DateCol" prefWidth="215.0" text="التاريخ" />
+               </columns>
+               <columnResizePolicy>
+                  <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </VBox.margin>
+            </JFXTreeTableView>
+            <HBox alignment="CENTER_LEFT">
+               <children>
+                  <Label fx:id="totalLabel" alignment="CENTER_RIGHT">
+                     <font>
+                        <Font name="System Bold" size="35.0" />
+                     </font>
+                     <padding>
+                        <Insets right="3.0" />
+                     </padding>
+                  </Label>
+                  <Label text="الإجمالي :">
+                     <font>
+                        <Font size="35.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" top="20.0" />
+         </padding>
+      </VBox>
+   </content>
+</ScrollPane>

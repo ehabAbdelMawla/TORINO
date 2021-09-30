@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="stackPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="homepage.defaultcenterController">
+   <children>
+      <JFXDrawer fx:id="drawer1" direction="RIGHT" prefWidth="168.0" />
+      <AnchorPane prefHeight="600.0" prefWidth="1000.0">
+         <children>
+            <ScrollPane fx:id="SP" fitToHeight="true" fitToWidth="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                    <FlowPane fx:id="FP" alignment="TOP_CENTER" hgap="30.0" rowValignment="TOP" styleClass="root" vgap="30.0">
+                        <padding>
+                            <Insets bottom="30.0" top="57.0" />
+                        </padding>
+                    </FlowPane>
+                </content>
+            </ScrollPane>
+            <HBox fx:id="dailyDetailsBTN" alignment="CENTER" minHeight="66.0" minWidth="70.0" onMouseClicked="#goToDailyDetails" spacing="10.0" style="-fx-background-radius: 100;" styleClass="xx" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="30.0">
+               <children>
+                  <FontAwesomeIconView glyphName="TABLE" size="40" />
+                  <Label fx:id="dailyDetailsBTN_label" text="Open Daily Details - فتح تفاصيل اليوم">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </HBox>
+            <HBox fx:id="menuBTN" alignment="CENTER" layoutX="10.0" layoutY="10.0" minHeight="66.0" minWidth="70.0" spacing="10.0" style="-fx-background-radius: 100;" styleClass="xx" AnchorPane.bottomAnchor="113.0" AnchorPane.leftAnchor="30.0">
+               <children>
+                  <FontAwesomeIconView glyphName="DOLLAR" size="40" />
+                  <Label fx:id="menuBTN_label" text="قائمة الاسعار - Menu">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

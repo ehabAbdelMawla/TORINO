@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefWidth="1100.0" spacing="20.0" styleClass="root" stylesheets="@../../resources/style/base.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="restaurant.dayorders.DayOrdersController">
+    <padding>
+        <Insets bottom="10.0" left="20.0" right="20.0" />
+    </padding>
+    <children>
+        <HBox alignment="CENTER" spacing="20.0">
+            <padding>
+                <Insets right="10.0" />
+            </padding>
+            <children>
+                <HBox fx:id="labelsContainer" alignment="CENTER_LEFT" spacing="13.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <VBox alignment="CENTER" onMouseClicked="#selectAll" spacing="5.0" style="-fx-background-color: linear-gradient( derive(#418BCA,+40%), #418BCA);;" styleClass="customer-category-pane">
+                            <children>
+                                <HBox alignment="CENTER" onMouseClicked="#filterDebt" spacing="10.0">
+                                    <children>
+                                        <MaterialDesignIconView fill="WHITE" glyphName="WALLET" size="40" />
+                                        <Label alignment="CENTER" text="الكل" textAlignment="CENTER" wrapText="true">
+                                            <font>
+                                                <Font name="System Bold" size="26.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <Label fx:id="total" text="20000 ريال">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                            <padding>
+                                <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                            </padding>
+                        </VBox>
+                        <VBox fx:id="deptVBox" alignment="CENTER" onMouseClicked="#filterDebt" spacing="5.0" style="-fx-background-color: #C91A29; -fx-background-color: -fx-red;" styleClass="customer-category-pane">
+                            <children>
+                                <HBox alignment="CENTER" spacing="10.0">
+                                    <children>
+                                        <FontAwesomeIconView fill="WHITE" glyphName="BOOK" size="40" />
+                                        <Label alignment="CENTER" text="الآجل" textAlignment="CENTER" wrapText="true">
+                                            <font>
+                                                <Font name="System Bold" size="26.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <Label fx:id="deptSumition" text="5000 ريال">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                            <padding>
+                                <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                            </padding>
+                        </VBox>
+                        <Separator orientation="VERTICAL" />
+                        <!--                                <VBox alignment="CENTER" onMouseClicked="#selectAll" styleClass="customer-category-pane">
+                      <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <children>
+                                <Label alignment="CENTER" text="الإجمالي" textAlignment="CENTER" wrapText="true">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label text="25000 ريال"  fx:id="sumOfAll">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>-->
+                        <VBox alignment="CENTER" minWidth="80.0" onMouseClicked="#filterTakeAway" styleClass="customer-category-pane">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <children>
+                                <Label alignment="CENTER" text="تيك آوي" textAlignment="CENTER" wrapText="true">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="takAwaySumition" text="2500 ح">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <VBox fx:id="hallFilterBox" alignment="CENTER" minWidth="80.0" onMouseClicked="#filterHall" styleClass="customer-category-pane">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <children>
+                                <Label alignment="CENTER" text="الصالة" textAlignment="CENTER" wrapText="true">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="hallSumition" text="0 ريال">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <VBox fx:id="barFilterBox" alignment="CENTER" minWidth="80.0" onMouseClicked="#filterBarOrders" styleClass="customer-category-pane">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <children>
+                                <Label alignment="CENTER" text="بار" textAlignment="CENTER" wrapText="true">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="barSumition" text="2500 ح">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                  <VBox fx:id="deliveryFilterBox" alignment="CENTER" layoutX="480.0" layoutY="10.0" minWidth="80.0" onMouseClicked="#filterdeliveryOrders" styleClass="customer-category-pane">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <children>
+                        <Label alignment="CENTER" text="توصيل الطلبات" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="deliverySumition" text="2500 ح">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" fillHeight="false" HBox.hgrow="ALWAYS">
+                    <children>
+                        <AnchorPane>
+                            <children>
+                                <TextField fx:id="filterField" focusTraversable="false" layoutX="353.0" minWidth="200.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="31.0" prefWidth="310.0" promptText="بحث برقم الفاتورة" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <styleClass>
+                                        <String fx:value="text-field-normal" />
+                                        <String fx:value="text-field-search" />
+                                    </styleClass>
+                                </TextField>
+                                <FontAwesomeIconView fill="#c9c9c9" glyphName="SEARCH" size="25" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="7.0" />
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </HBox>
+            </children>
+        </HBox>
+        <JFXTreeTableView fx:id="DayOrdersTable" focusTraversable="false" minHeight="425.0" styleClass="table" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+            <columns>
+            <TreeTableColumn fx:id="statusBox_Col" maxWidth="3000.0" prefWidth="120.0" text="الحالة" />
+                <TreeTableColumn fx:id="customer_Col" prefWidth="120.0" text="العميل" />
+                <TreeTableColumn fx:id="cashier_Col" prefWidth="120.0" text="الكاشير" />
+                <TreeTableColumn fx:id="debt_Col" prefWidth="130.0" text="الآجل" />
+                <TreeTableColumn fx:id="amountPaid_Col" prefWidth="130.0" text="المدفوع" />
+                <TreeTableColumn fx:id="totalAmount_Col" prefWidth="100.0" text="الصافي" />
+                <TreeTableColumn fx:id="discount_Col" prefWidth="110.0" text="الخصم" />
+                <TreeTableColumn fx:id="subTotalAmount_Col" prefWidth="110.0" text="الإجمالي" />
+                <TreeTableColumn fx:id="billKind_Col" prefWidth="120.0" text="نوع الفاتورة" />
+                <TreeTableColumn fx:id="billNumber_Col" prefWidth="120.0" text="رقم الفاتورة" />
+                <TreeTableColumn fx:id="date_Col" prefWidth="120.0" text="التاريخ" />
+                <TreeTableColumn fx:id="time_Col" prefWidth="120.0" text="الوقت" />
+            </columns>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+            <columnResizePolicy>
+                <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+        </JFXTreeTableView>
+    </children>
+</VBox>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToHeight="true" fitToWidth="true" prefWidth="932.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="expenses.ExpensesController">
+   <content>
+      <VBox alignment="CENTER" spacing="40.0" styleClass="root">
+         <children>
+            <HBox alignment="CENTER">
+               <children>
+                  <VBox fx:id="parentBox" alignment="CENTER" prefWidth="690.0" spacing="40.0" style="-fx-background-color: white; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 20, 0, 0, 0); -fx-background-radius: 20;">
+                     <children>
+                        <HBox alignment="CENTER" onMouseClicked="#expandOptions">
+                           <VBox.margin>
+                              <Insets top="4.0" />
+                           </VBox.margin>
+                           <children>
+                              <HBox alignment="CENTER" spacing="30.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <FontAwesomeIconView fill="#00831c" glyphName="MONEY" size="45" />
+                                    <Label text="إضافة مصروف">
+                                       <font>
+                                          <Font name="Arial" size="40.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets left="40.0" />
+                                 </padding>
+                              </HBox>
+                              <FontAwesomeIconView fx:id="arrowIcon" fill="#1e2b3c" glyphName="ARROW_DOWN" size="29">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </FontAwesomeIconView>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </HBox>
+                        <VBox fx:id="optionsBox" alignment="CENTER" spacing="30.0">
+                           <children>
+                              <HBox alignment="CENTER" style="-fx-background-radius: 20; -fx-background-color: white; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 0);">
+                                 <children>
+                                    <JFXButton fx:id="new_expenseBTN" focusTraversable="false" onAction="#goToNewExpense" prefWidth="2000.0" text="مصروف جديد">
+                                       <font>
+                                          <Font name="System Bold" size="23.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <JFXButton fx:id="prev_expenseBTN" focusTraversable="false" onAction="#goToPrevExpense" prefWidth="2000.0" styleClass="dark-button" text="مصروف سابق">
+                                       <font>
+                                          <Font name="System Bold" size="23.0" />
+                                       </font>
+                                    </JFXButton>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </HBox>
+                              <AnchorPane>
+                                 <children>
+                                    <VBox fx:id="new_expenseBox" alignment="CENTER" spacing="40.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <TextField fx:id="NeedText" alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" promptText="الغرض" styleClass="text-field-normal" />
+                                          <HBox alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" spacing="10.0">
+                                             <children>
+                                                <TextField fx:id="CostText" alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" onKeyReleased="#newAddKeyReleased" promptText="التكلفة" styleClass="text-field-normal" HBox.hgrow="ALWAYS" />
+                                                <JFXButton minWidth="80.0" onAction="#AddAction" prefWidth="100.0" styleClass="light-button" text="إضافه">
+                                                   <font>
+                                                      <Font name="System Bold" size="17.0" />
+                                                   </font>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </JFXButton>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="prev_expenseBox" alignment="CENTER" spacing="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <JFXComboBox fx:id="NeedOld" focusColor="#95ccff" labelFloat="true" maxWidth="1.7976931348623157E308" nodeOrientation="RIGHT_TO_LEFT" onMousePressed="#updateData" promptText="غرض سابق" style="-fx-font-weight: bold;" styleClass="text-field-normal" />
+                                          <HBox alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" spacing="10.0">
+                                             <children>
+                                                <TextField fx:id="CostTextOld" alignment="CENTER" onKeyReleased="#oldAddKeyReleased" promptText="التكلفة" styleClass="text-field-normal" HBox.hgrow="ALWAYS" />
+                                                <JFXButton minWidth="80.0" onAction="#AddActionOld" prefWidth="100.0" styleClass="light-button" text="إضافه">
+                                                   <font>
+                                                      <Font name="System Bold" size="17.0" />
+                                                   </font>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </JFXButton>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+            <JFXTreeTableView fx:id="myTable" focusTraversable="false" minHeight="400.0" styleClass="table" VBox.vgrow="ALWAYS">
+               <columns>
+                  <TreeTableColumn fx:id="EDITCOL" maxWidth="3500.0" prefWidth="113.0" text="تعديل" />
+                  <TreeTableColumn fx:id="PriceCol" prefWidth="170.0" text="التكلفة" />
+                  <TreeTableColumn fx:id="NeedCol" prefWidth="161.0" text="الغرض" />
+                  <TreeTableColumn fx:id="UserCol" minWidth="0.0" prefWidth="233.0" text="المستخدم" />
+                  <TreeTableColumn fx:id="DateCol" prefWidth="184.0" text="التاريخ" />
+               </columns>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" />
+               </VBox.margin>
+               <columnResizePolicy>
+                  <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </JFXTreeTableView>
+         </children>
+         <padding>
+            <Insets top="47.0" />
+         </padding>
+      </VBox>
+   </content>
+</ScrollPane>

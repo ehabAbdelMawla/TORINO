@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" onMouseDragged="#RootMouseDragged" onMousePressed="#RootMousePressed" prefHeight="456.0" prefWidth="630.0" style="-fx-background-color: transparent;" stylesheets="@../resources/style/base.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="launcher.LauncherSceneController">
+    <children>
+        <JFXProgressBar fx:id="progressbar" prefHeight="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="180.0">
+            <effect>
+                <Glow>
+                    <input>
+                        <DropShadow color="#0000007a" height="57.215" radius="31.411250000000003" width="70.43" />
+                    </input>
+                </Glow>
+            </effect>
+        </JFXProgressBar>
+        <ImageView fx:id="imageView" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.9), 40, 0, 0, 0);" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+      
+        </ImageView>
+    </children>
+</AnchorPane>
